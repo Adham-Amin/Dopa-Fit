@@ -5,15 +5,18 @@ import 'package:svg_flutter/svg.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
-    super.key, required this.hintText, this.icon,
+    super.key, required this.hintText, this.icon, this.onSaved,
   });
 
   final String hintText;
   final Widget? icon;
+  final String? Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onSaved,
+      validator: (value) => value!.isEmpty ? 'Enter your email address' : null,
       cursorColor: AppColors.red,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(

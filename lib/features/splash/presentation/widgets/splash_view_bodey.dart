@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:dopa_fit/core/functions/shared_preferences.dart';
+import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
 class CustomPassTextFromField extends StatefulWidget {
-  const CustomPassTextFromField({super.key});
+  const CustomPassTextFromField({super.key, this.onSaved});
+
+  final void Function(String?)? onSaved;
 
   @override
   State<CustomPassTextFromField> createState() =>
@@ -16,6 +18,8 @@ class _CustomPassTextFromFieldState extends State<CustomPassTextFromField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: widget.onSaved,
+      validator: (value) => value!.isEmpty ? 'Enter your password' : null,
       obscureText: isObscure,
       cursorColor: AppColors.red,
       keyboardType: TextInputType.visiblePassword,

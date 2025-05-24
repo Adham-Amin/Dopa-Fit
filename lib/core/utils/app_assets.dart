@@ -10,6 +10,14 @@ class AppAssets {
   /// assets/images/bkground_onboarding_two.png
   static const String imagesBkgroundOnboardingTwo = "assets/images/bkground_onboarding_two.png";
 
+  /// Assets for imagesFacebookIcon
+  /// assets/images/facebook_icon.svg
+  static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
+
+  /// Assets for imagesGoogleIcon
+  /// assets/images/google_icon.svg
+  static const String imagesGoogleIcon = "assets/images/google_icon.svg";
+
   /// Assets for imagesIconApp
   /// assets/images/icon_app.png
   static const String imagesIconApp = "assets/images/icon_app.png";
