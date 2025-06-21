@@ -46,10 +46,13 @@ class OnboardingItem extends StatelessWidget {
             ).copyWith(color: AppColors.white),
           ),
           const SizedBox(height: 32),
-          CustomButton(
-            icon: icon,
-            title: buttonTitle,
-            onTap: onTap,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: CustomButton(
+              icon: icon,
+              title: buttonTitle,
+              onTap: onTap,
+            ),
           ),
           const SizedBox(height: 48),
         ],

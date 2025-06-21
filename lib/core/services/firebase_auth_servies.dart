@@ -16,17 +16,17 @@ class FirebaseAuthServies {
     } on FirebaseAuthException catch (e) {
       log("errorFromSiginFirebase: ${e.message}}");
       if (e.code == 'weak-password') {
-        throw CustomException(message: 'The password provided is too weak.');
+        throw CustomException(message: 'Weak password');
       } else if (e.code == 'email-already-in-use') {
-        throw CustomException(message: 'The account already exists for that email.');
+        throw CustomException(message: 'Email already in use');
       } else if (e.code == 'network-request-failed') {
-        throw CustomException(message: 'Please check your internet connection.');
+        throw CustomException(message: 'Network request failed');
       } else {
-        throw CustomException(message: 'Something went wrong.');
+        throw CustomException(message: 'Something went wrong');
       }
     } catch (e) {
       log("error: ${e.toString()}");
-      throw CustomException(message: 'Something went wrong.');
+      throw CustomException(message: 'Something went wrong');
     }
   }
 
@@ -43,17 +43,17 @@ class FirebaseAuthServies {
     } on FirebaseAuthException catch (e) {
       log("errorFromLoginFirebase: ${e.message}}");
       if (e.code == 'user-not-found') {
-        throw CustomException(message: 'No user found for that email.');
+        throw CustomException(message: 'User not found');
       } else if (e.code == 'wrong-password') {
-        throw CustomException(message: 'Wrong password provided for that user.');
+        throw CustomException(message: 'Wrong password');
       } else if (e.code == 'network-request-failed') {
-        throw CustomException(message: 'Please check your internet connection.');
+        throw CustomException(message: 'Network request failed');
       } else {
-        throw CustomException(message: 'Something went wrong.');
+        throw CustomException(message: 'Something went wrong');
       }
     } catch (e) {
       log("error: ${e.toString()}");
-      throw CustomException(message: 'Something went wrong.');
+      throw CustomException(message: 'Something went wrong');
     }
   }
 
@@ -85,4 +85,10 @@ class FirebaseAuthServies {
   Future<void> deleteUser() async {
     await FirebaseAuth.instance.currentUser!.delete();
   }
+
+  static bool isSignedIn() {
+    return FirebaseAuth.instance.currentUser != null;
+  }
+
+  
 }

@@ -9,11 +9,11 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Prefs.init();
-  setupGetIt();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Prefs.init();
+  setupGetIt();
   runApp(const DopaFit());
 }
 class DopaFit extends StatelessWidget {
