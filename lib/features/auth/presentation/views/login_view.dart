@@ -1,8 +1,10 @@
 import 'package:dopa_fit/core/functions/bar_massage.dart';
 import 'package:dopa_fit/core/services/get_it_sevices.dart';
+import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/features/auth/domain/repos/auth_repo.dart';
 import 'package:dopa_fit/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:dopa_fit/features/auth/presentation/widgets/login_view_body.dart';
+import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
 import 'package:dopa_fit/features/questions/presentation/views/question_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,9 +25,11 @@ class LoginView extends StatelessWidget {
             return BlocConsumer<LoginCubit, LoginState>(
               listener: (context, state) {
                 if (state is LoginLoaded) {
-                  Navigator.of(
-                    context,
-                  ).pushReplacementNamed(QuestionView.routeName);
+                  if(Prefs.getBool('Done Questions')) {
+                    Navigator.of(context).pushReplacementNamed(HomeView.routeName);
+                  } else {
+                    Navigator.of(context).pushReplacementNamed(QuestionView.routeName);
+                  }
                 } else if (state is LoginError) {
                   showSnackBar(context, state.failure);
                 }

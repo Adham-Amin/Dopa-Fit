@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
+import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
@@ -105,7 +106,7 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
 
         BlocProvider.of<DietCubit>(context).calories = calories;
         BlocProvider.of<WorkoutCubit>(context).weight = w;
-        
+        Prefs.setBool('Done Questions', true);
         log("calories: $calories");
         Navigator.of(context).pushReplacementNamed(HomeView.routeName);
       }

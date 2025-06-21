@@ -23,21 +23,17 @@ class DopaFit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (context) => DietCubit()),
-            BlocProvider(create: (context) => WorkoutCubit()),
-          ],
-          child: MaterialApp(
-            theme: ThemeData(fontFamily: AppStyles.fontFamily),
-            debugShowCheckedModeBanner: false,
-            onGenerateRoute: onGenerateRoute,
-            initialRoute: SplashView.routeName,
-          ),
-        );
-      }
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => DietCubit()),
+        BlocProvider(create: (context) => WorkoutCubit()),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: AppStyles.fontFamily),
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: onGenerateRoute,
+        initialRoute: SplashView.routeName,
+      ),
     );
   }
 }
