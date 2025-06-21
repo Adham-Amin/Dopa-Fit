@@ -1,14 +1,18 @@
 import 'dart:developer';
+import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
+import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_bkground.dart';
 import 'package:dopa_fit/core/widgets/custom_button.dart';
+import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/activity_level_selector.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/goal_selector.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/hieght_input_row.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/wieght_input_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class QuestionViewBody extends StatefulWidget {
   const QuestionViewBody({super.key});
@@ -98,8 +102,12 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
         } else if (goal == 'lose') {
           calories -= 500;
         }
-        // cubit
-        log(calories.toString());
+
+        BlocProvider.of<DietCubit>(context).calories = calories;
+        BlocProvider.of<WorkoutCubit>(context).weight = w;
+        
+        log("calories: $calories");
+        Navigator.of(context).pushReplacementNamed(HomeView.routeName);
       }
     }
   }

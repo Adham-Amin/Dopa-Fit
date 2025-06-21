@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'workout_state.dart';
 
 class WorkoutCubit extends Cubit<WorkoutState> {
-  WorkoutCubit(this.weight) : super(WorkoutInitial());
+  WorkoutCubit() : super(WorkoutInitial());
 
-  int weight;
+  late double weight;
   late String planId;
   Future<void> fetchWorkout() async {
     if(weight <= 80){

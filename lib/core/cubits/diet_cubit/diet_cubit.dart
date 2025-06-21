@@ -6,9 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'diet_state.dart';
 
 class DietCubit extends Cubit<DietState> {
-  DietCubit(this.calories) : super(DietInitial());
+  DietCubit() : super(DietInitial());
 
-  int calories;
+  late double calories;
   late String planId;
   Future<void> fetchDiet() async {
     emit(DietLoading());
