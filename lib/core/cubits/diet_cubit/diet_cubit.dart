@@ -10,35 +10,39 @@ class DietCubit extends Cubit<DietState> {
 
   late double calories;
   late String planId;
-  Future<void> fetchDiet() async {
+
+  Future<void> fetchDiet(String userId) async {
     emit(DietLoading());
     getPlan();
     try {
-      final diet =
-          await FirebaseFirestore.instance
-              .collection("Diets")
-              .doc(planId)
-              .get();
+      final diet = await FirebaseFirestore.instance
+          .collection("Diets")
+          .doc(planId)
+          .get();
 
-      final mealsSnap =
-          await FirebaseFirestore.instance
-              .collection("Diets")
-              .doc(planId)
-              .collection("meals")
-              .get();
+      final mealsSnap = await FirebaseFirestore.instance
+          .collection("Diets")
+          .doc(planId)
+          .collection("meals")
+          .get();
 
       final meals = await Future.wait(
         mealsSnap.docs.map((mealDoc) async {
           final itemsSnap = await mealDoc.reference.collection("items").get();
-          final items =
-              itemsSnap.docs
-                  .map((itemDoc) => MealItemModel.fromFirestore(itemDoc.data()))
-                  .toList();
+          final items = itemsSnap.docs
+              .map((itemDoc) => MealItemModel.fromFirestore(itemDoc.data()))
+              .toList();
           return MealModel.fromFirestore(mealDoc.data(), items);
         }),
       );
 
       final plan = DietModel.fromFirestore(diet.data()!, meals);
+
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userId)
+          .update({"planId": planId});
+
       emit(DietLoaded(diets: plan));
     } catch (e) {
       emit(DietError(message: e.toString()));
@@ -46,7 +50,7 @@ class DietCubit extends Cubit<DietState> {
   }
 
   void getPlan() {
-     if (calories >= 1500 && calories < 1750) {
+    if (calories >= 1500 && calories < 1750) {
       planId = 'plan 1500';
     } else if (calories >= 1750 && calories < 2000) {
       planId = 'plan 1750';

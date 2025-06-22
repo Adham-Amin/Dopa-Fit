@@ -9,9 +9,11 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.black,
-      body: HomeViewBody(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.black,
+        body: HomeViewBody(),
+      ),
     );
   }
 }

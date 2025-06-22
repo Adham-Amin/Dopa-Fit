@@ -11,41 +11,45 @@ class WorkoutCubit extends Cubit<WorkoutState> {
 
   late double weight;
   late String planId;
-  Future<void> fetchWorkout() async {
-    if(weight <= 80){
+
+  Future<void> fetchWorkout(String userId) async {
+    if (weight <= 80) {
       planId = 'PPL';
     } else {
       planId = 'PRO';
     }
+
     emit(WorkoutLoading());
+
     try {
-      final workoutModel =
-          await FirebaseFirestore.instance
-              .collection("Workouts")
-              .doc(planId)
-              .get();
-      final exercises =
-          await FirebaseFirestore.instance
-              .collection("Workouts")
-              .doc(planId)
-              .collection("Exercises")
-              .get();
+      final workoutModel = await FirebaseFirestore.instance
+          .collection("Workouts")
+          .doc(planId)
+          .get();
+
+      final exercises = await FirebaseFirestore.instance
+          .collection("Workouts")
+          .doc(planId)
+          .collection("Exercises")
+          .get();
 
       final splits = await Future.wait(
         exercises.docs.map((splitDoc) async {
-          final exercisesSnap =
-              await splitDoc.reference.collection("workout").get();
-          final exercises =
-              exercisesSnap.docs
-                  .map(
-                    (exerciseDoc) =>
-                        ExerciseModel.fromFirestore(exerciseDoc.data()),
-                  )
-                  .toList();
+          final exercisesSnap = await splitDoc.reference.collection("workout").get();
+          final exercises = exercisesSnap.docs
+              .map((exerciseDoc) => ExerciseModel.fromFirestore(exerciseDoc.data()))
+              .toList();
           return SplitModel.fromFirestore(splitDoc.data(), exercises);
         }),
       );
+
       final plan = WorkoutModel.fromFirestore(workoutModel.data()!, splits);
+
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userId)
+          .update({"workoutPlanId": planId});
+
       emit(WorkoutLoaded(workout: plan));
     } catch (e) {
       emit(WorkoutError(message: e.toString()));

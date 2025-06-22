@@ -47,7 +47,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
         OnboardingItem(
           onTap: () {
             Prefs.setBool('seenOnboarding', true);
-            Navigator.pushNamed(context, LoginView.routeName);
+            Navigator.pushReplacementNamed(context, LoginView.routeName);
           },
           bkgroundImage: AppAssets.imagesBkgroundOnboardingTwo,
           title: Text('Health Metrics &  Fitness Analytics', textAlign: TextAlign.center, style: AppStyles.textBold30(context).copyWith(color: AppColors.white, fontSize: 32)),

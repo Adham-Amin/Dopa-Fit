@@ -121,17 +121,19 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   Future<void> isExistUser(
-    bool isExist,
-    UserEntity userEntity,
-    User user,
-  ) async {
-    if (!isExist) {
-      await addUserData(user: userEntity, docId: user.uid);
-    } else {
-      await getUserData(docId: user.uid);
-      await saveUserData(user: userEntity);
-    }
+  bool isExist,
+  UserEntity userEntity,
+  User user,
+) async {
+  if (!isExist) {
+    await addUserData(user: userEntity, docId: user.uid);
+    await saveUserData(user: userEntity);
+  } else {
+    final existingUser = await getUserData(docId: user.uid);
+    await saveUserData(user: existingUser);
   }
+}
+
 
   @override
   Future addUserData({required UserEntity user, required String docId}) {

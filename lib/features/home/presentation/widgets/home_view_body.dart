@@ -13,7 +13,6 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 40),
         ListTile(
           leading: Image.asset(AppAssets.imagesBodybuilder, width: 50),
           title: Text(

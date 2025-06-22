@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
@@ -7,6 +8,7 @@ import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_bkground.dart';
 import 'package:dopa_fit/core/widgets/custom_button.dart';
+import 'package:dopa_fit/features/auth/domain/entities/user_entity.dart';
 import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/activity_level_selector.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/goal_selector.dart';
@@ -39,7 +41,12 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
           child: Column(
             children: [
               const SizedBox(height: 80),
-              Text('Calculate Calories', style: AppStyles.textBold20(context).copyWith(color: AppColors.white)),
+              Text(
+                'Calculate Calories',
+                style: AppStyles.textBold20(
+                  context,
+                ).copyWith(color: AppColors.white),
+              ),
               const SizedBox(height: 32),
               HeightInputRow(onSaved: (val) => height = val ?? ''),
               const SizedBox(height: 16),
@@ -106,6 +113,15 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
 
         BlocProvider.of<DietCubit>(context).calories = calories;
         BlocProvider.of<WorkoutCubit>(context).weight = w;
+
+        final json = Prefs.getString('userData');
+        if (json.isNotEmpty) {
+          final user = UserEntity.fromMap(jsonDecode(json));
+
+          BlocProvider.of<DietCubit>(context).fetchDiet(user.uId);
+          BlocProvider.of<WorkoutCubit>(context).fetchWorkout(user.uId);
+        }
+
         Prefs.setBool('Done Questions', true);
         log("calories: $calories");
         Navigator.of(context).pushReplacementNamed(HomeView.routeName);
