@@ -2,6 +2,7 @@ import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/functions/launch_link.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
+import 'package:dopa_fit/features/chat/presentation/pages/chat_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/custom_home_item.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/user_info_and_profile.dart';
@@ -38,14 +39,14 @@ class HomeViewBody extends StatelessWidget {
                         : state is WorkoutLoaded
                         ? state.workout.cardio
                         : 'No data',
-                    style: AppStyles.textSemiBold24(
+                    style: AppStyles.textRegular16(
                       context,
                     ).copyWith(color: AppColors.white),
                   ),
                 );
               },
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             CustomHomeItem(
               onTap: () {
                 Navigator.pushNamed(context, DietView.routeName);
@@ -54,19 +55,33 @@ class HomeViewBody extends StatelessWidget {
               image: Icon(
                 Icons.restaurant_outlined,
                 color: AppColors.white,
-                size: 40,
+                size: 32,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 8),
             CustomHomeItem(
+              onTap: () {
+              },
               title: 'Workout',
               image: Icon(
                 Icons.fitness_center,
                 color: AppColors.white,
-                size: 40,
+                size: 32,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
+            CustomHomeItem(
+              onTap: () {
+                Navigator.pushNamed(context, ChatView.routeName);
+              },
+              title: 'Chat Bot',
+              image: Icon(
+                Icons.chat,
+                color: AppColors.white,
+                size: 32,
+              ),
+            ),
+            const SizedBox(height: 8),
             CustomHomeItem(
               onTap: () {
                 launchLink(context, 'https://uodiyala.edu.iq/uploads/PDF%20ELIBRARY%20UODIYALA/EL42/Tidy\'s%20Physiotherapy.pdf');
@@ -75,7 +90,7 @@ class HomeViewBody extends StatelessWidget {
               image: Icon(
                 Icons.health_and_safety_outlined,
                 color: AppColors.white,
-                size: 40,
+                size: 32,
               ),
             ),
           ],

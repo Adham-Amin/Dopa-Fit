@@ -1,5 +1,6 @@
 import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
 import 'package:dopa_fit/features/auth/presentation/views/signup_view.dart';
+import 'package:dopa_fit/features/chat/presentation/pages/chat_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
 import 'package:dopa_fit/features/onboarding/presentation/views/onboarding_view.dart';
@@ -26,6 +27,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const DietView());
     case WorkoutView.routeName:
       return MaterialPageRoute(builder: (context) => const WorkoutView());
+      case ChatView.routeName:
+      return MaterialPageRoute(builder: (context) => const ChatView());
     default:
       return MaterialPageRoute(builder: (context) => const SplashView());
   }
