@@ -38,6 +38,12 @@ abstract class AppStyles {
       fontWeight: FontWeight.w400,
     );
   }
+  static TextStyle textRegular24(context) {
+    return TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w400,
+    );
+  }
   static TextStyle textMedium16(context) {
     return TextStyle(
       fontSize: 16,

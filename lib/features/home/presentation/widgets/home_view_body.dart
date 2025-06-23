@@ -2,6 +2,7 @@ import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/functions/launch_link.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
+import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/custom_home_item.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/user_info_and_profile.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,9 @@ class HomeViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             CustomHomeItem(
+              onTap: () {
+                Navigator.pushNamed(context, DietView.routeName);
+              },
               title: 'Diet',
               image: Icon(
                 Icons.restaurant_outlined,
@@ -64,6 +68,9 @@ class HomeViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             CustomHomeItem(
+              onTap: () {
+                launchLink(context, 'https://uodiyala.edu.iq/uploads/PDF%20ELIBRARY%20UODIYALA/EL42/Tidy\'s%20Physiotherapy.pdf');
+              },
               title: 'Physiotherapy',
               image: Icon(
                 Icons.health_and_safety_outlined,

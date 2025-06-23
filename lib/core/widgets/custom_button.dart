@@ -7,13 +7,14 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.title,
-    required this.icon,
-    required this.onTap,
+    this.icon,
+    required this.onTap, this.iconWidget,
   });
 
   final String title;
-  final String icon;
+  final String? icon;
   final VoidCallback onTap;
+  final Widget? iconWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        label: SvgPicture.asset(icon, width: 24),
+        label: iconWidget ?? SvgPicture.asset(icon!, width: 24),
         icon: Text(
           title,
           style: AppStyles.textSemiBold16(

@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 class DietView extends StatelessWidget {
   const DietView({super.key});
 
-  static const routename = '/diet';
+  static const routeName = '/diet';
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(body: DietViewBody()));
+    return SafeArea(
+      child: Scaffold(
+        body: DietViewBody(),
+      ),
+    );
   }
 }
