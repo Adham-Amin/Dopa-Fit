@@ -1,35 +1,79 @@
-import 'package:dopa_fit/core/functions/get_user.dart';
-import 'package:dopa_fit/core/utils/app_assets.dart';
+import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
+import 'package:dopa_fit/core/functions/launch_link.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dopa_fit/features/home/presentation/widgets/custom_home_item.dart';
+import 'package:dopa_fit/features/home/presentation/widgets/user_info_and_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          leading: Image.asset(AppAssets.imagesBodybuilder, width: 50),
-          title: Text(
-            getUser().name,
-            style: AppStyles.textBold14(
-              context,
-            ).copyWith(color: AppColors.white),
-          ),
-          trailing: IconButton(
-            icon: const Icon(Icons.logout, color: AppColors.white),
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-              Navigator.pushReplacementNamed(context, LoginView.routeName);
-            },
-          ),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 8),
+            UserInfoAndProfileIcon(),
+            const SizedBox(height: 32),
+            BlocBuilder<WorkoutCubit, WorkoutState>(
+              builder: (context, state) {
+                return CustomHomeItem(
+                  onTap: () {
+                    launchLink(
+                      context,
+                      'https://youtube.com/shorts/nrnvNN11adg?si=nwRzcZS3ziUb7X2b',
+                    );
+                  },
+                  title: 'Cardio',
+                  image: Text(
+                    state is WorkoutLoading
+                        ? 'Loading...'
+                        : state is WorkoutLoaded
+                        ? state.workout.cardio
+                        : 'No data',
+                    style: AppStyles.textSemiBold24(
+                      context,
+                    ).copyWith(color: AppColors.white),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+            CustomHomeItem(
+              title: 'Diet',
+              image: Icon(
+                Icons.restaurant_outlined,
+                color: AppColors.white,
+                size: 40,
+              ),
+            ),
+            const SizedBox(height: 16),
+            CustomHomeItem(
+              title: 'Workout',
+              image: Icon(
+                Icons.fitness_center,
+                color: AppColors.white,
+                size: 40,
+              ),
+            ),
+            const SizedBox(height: 16),
+            CustomHomeItem(
+              title: 'Physiotherapy',
+              image: Icon(
+                Icons.health_and_safety_outlined,
+                color: AppColors.white,
+                size: 40,
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

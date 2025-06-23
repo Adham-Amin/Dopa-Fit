@@ -1,6 +1,7 @@
 import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/functions/on_generate_route.dart';
+import 'package:dopa_fit/core/services/custom_observer_bloc.dart';
 import 'package:dopa_fit/core/services/get_it_sevices.dart';
 import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
@@ -15,6 +16,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Prefs.init();
   setupGetIt();
+  Bloc.observer = CustomObserverBloc();
   runApp(const DopaFit());
 }
 
@@ -29,7 +31,10 @@ class DopaFit extends StatelessWidget {
         BlocProvider(create: (context) => WorkoutCubit()),
       ],
       child: MaterialApp(
-        theme: ThemeData(fontFamily: AppStyles.fontFamily),
+        theme: ThemeData(
+          fontFamily: AppStyles.fontFamily,
+          scaffoldBackgroundColor: Colors.black,
+        ),
         debugShowCheckedModeBanner: false,
         onGenerateRoute: onGenerateRoute,
         initialRoute: SplashView.routeName,

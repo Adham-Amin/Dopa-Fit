@@ -14,9 +14,17 @@ class AppAssets {
   /// assets/images/bodybuilder.png
   static const String imagesBodybuilder = "assets/images/bodybuilder.png";
 
+  /// Assets for imagesDietIcon
+  /// assets/images/diet_icon.svg
+  static const String imagesDietIcon = "assets/images/diet_icon.svg";
+
   /// Assets for imagesFacebookIcon
   /// assets/images/facebook_icon.svg
   static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
+
+  /// Assets for imagesFitIcon
+  /// assets/images/fit_icon.svg
+  static const String imagesFitIcon = "assets/images/fit_icon.svg";
 
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg
@@ -45,5 +53,13 @@ class AppAssets {
   /// Assets for imagesLogo
   /// assets/images/logo.png
   static const String imagesLogo = "assets/images/logo.png";
+
+  /// Assets for imagesPhysiotherapy
+  /// assets/images/physiotherapy.svg
+  static const String imagesPhysiotherapy = "assets/images/physiotherapy.svg";
+
+  /// Assets for imagesProfileIcon
+  /// assets/images/profile_icon.svg
+  static const String imagesProfileIcon = "assets/images/profile_icon.svg";
 }
 

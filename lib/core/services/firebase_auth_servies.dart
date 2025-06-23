@@ -89,6 +89,4 @@ class FirebaseAuthServies {
   static bool isSignedIn() {
     return FirebaseAuth.instance.currentUser != null;
   }
-
-  
 }

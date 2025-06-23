@@ -50,6 +50,12 @@ abstract class AppStyles {
       fontWeight: FontWeight.w600,
     );
   }
+  static TextStyle textSemiBold24(context) {
+    return TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+    );
+  }
   static TextStyle textRegular14(context) {
     return TextStyle(
       fontSize: 14,

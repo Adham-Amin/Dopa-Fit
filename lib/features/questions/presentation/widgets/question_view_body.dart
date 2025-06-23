@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/services/shared_preferences.dart';
@@ -96,12 +95,12 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
 
       if (h != null && w != null) {
         double bmr = 10 * w + 6.25 * h - 5 * 25 + 5;
-        double activityFactor =
-            activityLevel == 'low'
-                ? 1.3
-                : activityLevel == 'medium'
-                ? 1.4
-                : 1.6;
+
+        double activityFactor = switch (activityLevel) {
+          'low' => 1.3,
+          'medium' => 1.4,
+          _ => 1.6,
+        };
 
         double calories = bmr * activityFactor;
 
@@ -111,21 +110,35 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
           calories -= 500;
         }
 
-        BlocProvider.of<DietCubit>(context).calories = calories;
-        BlocProvider.of<WorkoutCubit>(context).weight = w;
-
-        final json = Prefs.getString('userData');
-        if (json.isNotEmpty) {
-          final user = UserEntity.fromMap(jsonDecode(json));
-
-          BlocProvider.of<DietCubit>(context).fetchDiet(user.uId);
-          BlocProvider.of<WorkoutCubit>(context).fetchWorkout(user.uId);
-        }
+        getPlansAndUpdateDataUser(calories, w);
 
         Prefs.setBool('Done Questions', true);
-        log("calories: $calories");
         Navigator.of(context).pushReplacementNamed(HomeView.routeName);
       }
+    }
+  }
+
+  void getPlansAndUpdateDataUser(double calories, double w) {
+    final dietCubit = BlocProvider.of<DietCubit>(context);
+    final workoutCubit = BlocProvider.of<WorkoutCubit>(context);
+    final planId = dietCubit.getPlan(calories: calories);
+    final workoutPlanId = workoutCubit.getWorkoutPlanId(weight: w);
+
+    final json = Prefs.getString('userData');
+    if (json.isNotEmpty) {
+      final user = UserEntity.fromMap(jsonDecode(json));
+      final updatedUser = user.copyWith(
+        weight: w,
+        planId: planId,
+        workoutPlanId: workoutPlanId,
+      );
+      Prefs.setString('userData', jsonEncode(updatedUser.toMap()));
+
+      workoutCubit.updateUserWorkoutData(
+        userId: user.uId,
+        planId: workoutPlanId,
+        weight: w,
+      );
     }
   }
 }

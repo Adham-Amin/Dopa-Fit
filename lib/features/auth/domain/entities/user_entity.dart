@@ -6,6 +6,8 @@ class UserEntity {
   final String email;
   final String? planId;
   final String? workoutPlanId;
+  final double? weight;
+  final double? calories;
 
   UserEntity({
     required this.uId,
@@ -13,6 +15,8 @@ class UserEntity {
     required this.email,
     this.planId,
     this.workoutPlanId,
+    this.weight,
+    this.calories
   });
 
   factory UserEntity.fromFirebase(User user) => UserEntity(
@@ -27,7 +31,9 @@ class UserEntity {
       'name': name,
       'email': email,
       if (planId != null) 'planId': planId,
-      if (workoutPlanId != null) 'workoutPlanId': workoutPlanId
+      if (workoutPlanId != null) 'workoutPlanId': workoutPlanId,
+      if (weight != null) 'weight': weight,
+      if (calories != null) 'calories': calories
     };
   }
 
@@ -38,6 +44,8 @@ class UserEntity {
       email: json['email'],
       planId: json['planId'],
       workoutPlanId: json['workoutPlanId'],
+      weight: (json['weight'] as num?)?.toDouble(),
+      calories: (json['calories'] as num?)?.toDouble(),
     );
   }
 
@@ -47,6 +55,8 @@ class UserEntity {
     String? email,
     String? planId,
     String? workoutPlanId,
+    double? weight,
+    double? calories
   }) {
     return UserEntity(
       uId: uId ?? this.uId,
@@ -54,6 +64,8 @@ class UserEntity {
       email: email ?? this.email,
       planId: planId ?? this.planId,
       workoutPlanId: workoutPlanId ?? this.workoutPlanId,
+      weight: weight ?? this.weight,
+      calories: calories ?? this.calories
     );
   }
 }
