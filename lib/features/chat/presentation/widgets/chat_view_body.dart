@@ -44,18 +44,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       child: Column(
         children: [
           const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CustomAppBar(title: 'Chat Bot'),
-              IconButton(
-                onPressed: () {
-                  context.read<ChatCubit>().clearChat();
-                },
-                icon: Icon(Icons.delete_outline, size: 24, color: Colors.white),
-              ),
-            ],
-          ),
+          CustomAppBar(title: 'Chat Bot'),
           const SizedBox(height: 12),
           Expanded(
             child: BlocConsumer<ChatCubit, ChatState>(

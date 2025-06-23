@@ -6,6 +6,7 @@ import 'package:dopa_fit/features/chat/presentation/pages/chat_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/custom_home_item.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/user_info_and_profile.dart';
+import 'package:dopa_fit/features/workout/presentation/views/workout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -61,6 +62,7 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: 8),
             CustomHomeItem(
               onTap: () {
+                Navigator.pushNamed(context, WorkoutView.routeName);
               },
               title: 'Workout',
               image: Icon(

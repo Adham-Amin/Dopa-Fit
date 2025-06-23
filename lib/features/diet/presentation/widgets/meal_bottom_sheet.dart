@@ -34,7 +34,7 @@ class MealBottomSheet extends StatelessWidget {
               ).copyWith(color: AppColors.white),
             ),
             const SizedBox(height: 12),
-            Divider(thickness: 1, color: AppColors.orange),
+            Divider(thickness: 1, color: AppColors.red),
             const SizedBox(height: 16),
             ListView.separated(
               physics: const NeverScrollableScrollPhysics(),

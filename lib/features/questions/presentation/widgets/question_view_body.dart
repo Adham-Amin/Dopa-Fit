@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/services/shared_preferences.dart';
@@ -109,7 +110,7 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
         } else if (goal == 'lose') {
           calories -= 500;
         }
-
+        log('calories: $calories');
         getPlansAndUpdateDataUser(calories, w);
 
         Prefs.setBool('Done Questions', true);
@@ -134,6 +135,7 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
       );
       Prefs.setString('userData', jsonEncode(updatedUser.toMap()));
 
+      dietCubit.updateUserPlanId(userId: user.uId, calories: calories);
       workoutCubit.updateUserWorkoutData(
         userId: user.uId,
         planId: workoutPlanId,

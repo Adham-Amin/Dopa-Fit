@@ -17,10 +17,8 @@ class CustomBackground extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [
             AppColors.black,
-            AppColors.black,
+
             AppColors.darkRed,
-            AppColors.red,
-            AppColors.red,
           ],
         ),
       ),

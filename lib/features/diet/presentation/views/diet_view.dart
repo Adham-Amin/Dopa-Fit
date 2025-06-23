@@ -1,3 +1,4 @@
+import 'package:dopa_fit/core/widgets/custom_bkground.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/diet_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class DietView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: DietViewBody(),
+        body: CustomBackground(child: DietViewBody()),
       ),
     );
   }
