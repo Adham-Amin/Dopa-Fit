@@ -1,4 +1,3 @@
-import 'package:dopa_fit/features/chat/data/helpers/chat_storage_helper.dart';
 import 'package:dopa_fit/features/chat/data/models/chat_massage_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -24,10 +23,10 @@ class ChatCubit extends Cubit<ChatState> {
 You are a fitness and nutrition assistant chatbot called "FitBot". Help the user with workout routines, nutrition advice, calorie calculations, supplements, bulking and cutting plans. Keep your answers short, practical, and easy to understand. Always reply in English unless the user writes in Arabic, then switch to Arabic.
 ''';
 
-    final loaded = await ChatStorageHelper.loadMessages();
-    _messages
-      ..clear()
-      ..addAll(loaded);
+    // final loaded = await ChatStorageHelper.loadMessages();
+    // _messages
+      // ..clear()
+      // ..addAll(loaded);
     if (_messages.isEmpty) {
       _messages.add(
         ChatMessage(text: '$welcomeMessage\n\n$prompt', isUserMessage: false),
@@ -56,12 +55,12 @@ You are a fitness and nutrition assistant chatbot called "FitBot". Help the user
       );
     }
 
-    await ChatStorageHelper.saveMessages(_messages);
+    // await ChatStorageHelper.saveMessages(_messages);
     emit(ChatLoaded(List.from(_messages)));
   }
 
   Future<void> clearChat() async {
-    await ChatStorageHelper.clearMessages();
+    // await ChatStorageHelper.clearMessages();
     _messages.clear();
     _messages.add(
       ChatMessage(
