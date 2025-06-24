@@ -2,7 +2,6 @@ import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/functions/launch_link.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/core/widgets/custom_app_bar.dart';
 import 'package:dopa_fit/core/widgets/custom_button.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/macros_row.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/meals_grid.dart';
@@ -20,8 +19,6 @@ class DietViewBody extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 12),
-            const CustomAppBar(title: 'Diet Plans'),
-            const SizedBox(height: 24),
             BlocBuilder<DietCubit, DietState>(
               builder: (context, state) {
                 if (state is DietError) {
@@ -35,7 +32,7 @@ class DietViewBody extends StatelessWidget {
                     ],
                   );
                 }
-                return const Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator(color: AppColors.red,));
               },
             ),
             Divider(thickness: 1, color: AppColors.grey, height: 48,),

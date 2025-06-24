@@ -2,7 +2,7 @@ import 'package:dopa_fit/core/functions/get_user.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/features/profile/presentation/views/profile_view.dart';
+import 'package:dopa_fit/features/questions/presentation/views/question_view.dart';
 import 'package:flutter/material.dart';
 
 class UserInfoAndProfileIcon extends StatelessWidget {
@@ -21,9 +21,9 @@ class UserInfoAndProfileIcon extends StatelessWidget {
         Spacer(),
         IconButton(
           onPressed:
-              () => Navigator.of(context).pushNamed(ProfileView.routeName),
+              () => Navigator.of(context).pushNamed(QuestionView.routeName),
           icon: const Icon(
-            Icons.person_outline_outlined,
+            Icons.upload_outlined,
             color: AppColors.white,
           ),
         ),

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:dopa_fit/core/services/firebase_auth_servies.dart';
 import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
@@ -7,7 +6,7 @@ import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_bkground.dart';
 import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
-import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
+import 'package:dopa_fit/features/home/presentation/views/main_view.dart';
 import 'package:dopa_fit/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +28,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     Timer(Duration(seconds: 3), () {
      if (Prefs.getBool('seenOnboarding')) {
       if(FirebaseAuthServies.isSignedIn()) {
-        Navigator.pushReplacementNamed(context, HomeView.routeName);
+        Navigator.pushReplacementNamed(context, MainView.routeName);
       }
       else {
         Navigator.pushReplacementNamed(context, LoginView.routeName);

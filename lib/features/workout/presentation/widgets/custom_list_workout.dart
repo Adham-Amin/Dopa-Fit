@@ -17,7 +17,7 @@ class CustomListWorkout extends StatelessWidget {
           return ListView.builder(
             itemCount: state.workout.exercises.length,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             itemBuilder:
                 (context, index) => CustomWorkoutItem(
                   onTap:
@@ -41,7 +41,7 @@ class CustomListWorkout extends StatelessWidget {
             ),
           );
         } else {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: CircularProgressIndicator(color: AppColors.red,));
         }
       },
     );

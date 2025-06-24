@@ -1,4 +1,3 @@
-import 'package:dopa_fit/core/widgets/custom_app_bar.dart';
 import 'package:dopa_fit/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:dopa_fit/features/chat/presentation/manager/chat_state.dart';
 import 'package:dopa_fit/features/chat/presentation/widgets/animated_message.dart';
@@ -43,8 +42,6 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       padding: EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-          const SizedBox(height: 12),
-          CustomAppBar(title: 'Chat Bot'),
           const SizedBox(height: 12),
           Expanded(
             child: BlocConsumer<ChatCubit, ChatState>(
@@ -91,7 +88,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
               context.read<ChatCubit>().sendMessage(text);
             },
           ),
-          SizedBox(height: 24),
+          SizedBox(height: 12),
         ],
       ),
     );

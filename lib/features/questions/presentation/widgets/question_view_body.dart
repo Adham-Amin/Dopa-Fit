@@ -7,10 +7,9 @@ import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/core/widgets/custom_bkground.dart';
 import 'package:dopa_fit/core/widgets/custom_button.dart';
 import 'package:dopa_fit/features/auth/domain/entities/user_entity.dart';
-import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
+import 'package:dopa_fit/features/home/presentation/views/main_view.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/activity_level_selector.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/goal_selector.dart';
 import 'package:dopa_fit/features/questions/presentation/widgets/hieght_input_row.dart';
@@ -34,55 +33,53 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBackground(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              const SizedBox(height: 80),
-              Text(
-                'Calculate Calories',
-                style: AppStyles.textBold20(
-                  context,
-                ).copyWith(color: AppColors.white),
-              ),
-              const SizedBox(height: 32),
-              HeightInputRow(onSaved: (val) => height = val ?? ''),
-              const SizedBox(height: 16),
-              WeightInputRow(onSaved: (val) => weight = val ?? ''),
-              const Divider(
-                color: AppColors.orange,
-                thickness: 1,
-                height: 32,
-                indent: 32,
-                endIndent: 32,
-              ),
-              ActivityLevelSelector(
-                selected: activityLevel,
-                onSelected: (val) => setState(() => activityLevel = val),
-              ),
-              const Divider(
-                color: AppColors.orange,
-                thickness: 1,
-                height: 32,
-                indent: 32,
-                endIndent: 32,
-              ),
-              GoalSelector(
-                selected: goal,
-                onSelected: (val) => setState(() => goal = val),
-              ),
-              const SizedBox(height: 32),
-              CustomButton(
-                title: 'Get Plans',
-                icon: AppAssets.imagesIconArrowRight,
-                onTap: caloriesCalculate,
-              ),
-              const SizedBox(height: 32),
-            ],
-          ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            const SizedBox(height: 80),
+            Text(
+              'Calculate Calories',
+              style: AppStyles.textBold20(
+                context,
+              ).copyWith(color: AppColors.white),
+            ),
+            const SizedBox(height: 32),
+            HeightInputRow(onSaved: (val) => height = val ?? ''),
+            const SizedBox(height: 16),
+            WeightInputRow(onSaved: (val) => weight = val ?? ''),
+            const Divider(
+              color: AppColors.red,
+              thickness: 1,
+              height: 32,
+              indent: 32,
+              endIndent: 32,
+            ),
+            ActivityLevelSelector(
+              selected: activityLevel,
+              onSelected: (val) => setState(() => activityLevel = val),
+            ),
+            const Divider(
+              color: AppColors.red,
+              thickness: 1,
+              height: 32,
+              indent: 32,
+              endIndent: 32,
+            ),
+            GoalSelector(
+              selected: goal,
+              onSelected: (val) => setState(() => goal = val),
+            ),
+            const SizedBox(height: 32),
+            CustomButton(
+              title: 'Get Plans',
+              icon: AppAssets.imagesIconArrowRight,
+              onTap: caloriesCalculate,
+            ),
+            const SizedBox(height: 32),
+          ],
         ),
       ),
     );
@@ -116,7 +113,7 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
 
         Prefs.setBool('Done Questions', true);
 
-        Navigator.of(context).pushReplacementNamed(HomeView.routeName);
+        Navigator.of(context).pushReplacementNamed(MainView.routeName);
       }
     }
   }

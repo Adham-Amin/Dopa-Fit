@@ -32,6 +32,7 @@ class DopaFit extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData(
+          brightness: Brightness.dark,
           fontFamily: AppStyles.fontFamily,
           scaffoldBackgroundColor: Colors.black,
         ),

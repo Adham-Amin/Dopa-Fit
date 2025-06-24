@@ -42,7 +42,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
         fillColor: Colors.white,
         border: _border(AppColors.grey),
         enabledBorder: _border(AppColors.grey),
-        focusedBorder: _border(AppColors.black, width: 2),
+        focusedBorder: _border(AppColors.red, width: 2),
         hintText: 'Write your message',
         hintStyle: AppStyles.textRegular14(context),
         suffixIcon: IconButton(
@@ -55,7 +55,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
                 },
           icon: Icon(
             Icons.send,
-            color: message.trim().isEmpty ? AppColors.grey : AppColors.black,
+            color: message.trim().isEmpty ? AppColors.grey : AppColors.red,
           ),
         ),
       ),

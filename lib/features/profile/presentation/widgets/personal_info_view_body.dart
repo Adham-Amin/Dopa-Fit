@@ -1,5 +1,4 @@
 import 'package:dopa_fit/core/functions/get_user.dart';
-import 'package:dopa_fit/core/widgets/custom_app_bar.dart';
 import 'package:dopa_fit/features/profile/presentation/widgets/personal_info_item.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +15,6 @@ class PersonalInfoViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 12),
-            CustomAppBar(title: 'Personal Information'),
-            SizedBox(height: 24),
             PersonalInfoItem(labal: 'Name', value: user.name),
             SizedBox(height: 12),
             PersonalInfoItem(labal: 'Email', value: user.email),

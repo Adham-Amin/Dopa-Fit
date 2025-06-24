@@ -1,5 +1,6 @@
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
+import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -19,6 +20,7 @@ class _CustomPassTextFromFieldState extends State<CustomPassTextFromField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: AppStyles.textRegular16(context).copyWith(color: AppColors.black),
       onSaved: widget.onSaved,
       validator: (value) => value!.isEmpty ? 'Enter your password' : null,
       obscureText: isObscure,
@@ -48,7 +50,7 @@ class _CustomPassTextFromFieldState extends State<CustomPassTextFromField> {
           borderRadius: BorderRadius.circular(12),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.orange, width: 2),
+          borderSide: BorderSide(color: AppColors.red, width: 2),
           borderRadius: BorderRadius.circular(12),
         ),
       ),

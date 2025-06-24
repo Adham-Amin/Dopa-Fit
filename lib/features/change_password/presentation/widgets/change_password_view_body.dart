@@ -1,6 +1,5 @@
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/core/widgets/custom_app_bar.dart';
 import 'package:dopa_fit/core/widgets/custom_button.dart';
 import 'package:dopa_fit/features/auth/presentation/widgets/custom_pass_text_from_field.dart';
 import 'package:dopa_fit/features/auth/presentation/widgets/title_text_field.dart';
@@ -53,8 +52,6 @@ class _ChangePasswordViewBodyState extends State<ChangePasswordViewBody> {
               child: Column(
                 children: [
                   const SizedBox(height: 12),
-                  const CustomAppBar(title: 'Change Password'),
-                  const SizedBox(height: 24),
                   const TitleTextField(title: 'Current Password'),
                   const SizedBox(height: 4),
                   CustomPassTextFromField(

@@ -5,6 +5,7 @@ import 'package:dopa_fit/features/change_password/presentation/views/change_pass
 import 'package:dopa_fit/features/chat/presentation/pages/chat_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
+import 'package:dopa_fit/features/home/presentation/views/main_view.dart';
 import 'package:dopa_fit/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:dopa_fit/features/profile/presentation/views/personal_info_view.dart';
 import 'package:dopa_fit/features/profile/presentation/views/profile_view.dart';
@@ -26,6 +27,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SignupView());
     case QuestionView.routeName:
       return MaterialPageRoute(builder: (context) => const QuestionView());
+    case MainView.routeName:
+      return MaterialPageRoute(builder: (context) => const MainView());
     case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeView());
     case DietView.routeName:

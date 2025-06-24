@@ -2,7 +2,6 @@ import 'package:dopa_fit/core/functions/get_user.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/core/widgets/custom_app_bar.dart';
 import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
 import 'package:dopa_fit/features/change_password/presentation/views/change_password_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
@@ -23,8 +22,6 @@ class ProfileViewBody extends StatelessWidget {
         child: Column(
           spacing: 12,
           children: [
-            SizedBox(height: 12),
-            CustomAppBar(title: 'Profile'),
             SizedBox(height: 12),
             Image.asset(AppAssets.imagesBodybuilder, width: 100),
             Text(
@@ -48,14 +45,14 @@ class ProfileViewBody extends StatelessWidget {
             ),
             ProfileItem(
               onTap: () {
-                Navigator.of(context).pushReplacementNamed(DietView.routeName);
+                Navigator.of(context).pushNamed(DietView.routeName);
               },
               title: 'Diet Plan',
               icon: Icons.restaurant_outlined,
             ),
             ProfileItem(
               onTap: () {
-                Navigator.of(context).pushReplacementNamed(WorkoutView.routeName);
+                Navigator.of(context).pushNamed(WorkoutView.routeName);
               },
               title: 'Workout Plan',
               icon: Icons.fitness_center_outlined,

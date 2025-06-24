@@ -29,9 +29,9 @@ class GoalSelector extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 12),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: selected == item['value'] ? AppColors.darkRed : Colors.transparent,
+                backgroundColor: selected == item['value'] ? AppColors.red : Colors.transparent,
                 foregroundColor: AppColors.white,
-                side: const BorderSide(color: AppColors.orange),
+                side: const BorderSide(color: AppColors.red),
                 elevation: 0,
                 padding: const EdgeInsets.symmetric(vertical: 14),
               ),

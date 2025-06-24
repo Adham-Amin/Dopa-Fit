@@ -1,4 +1,4 @@
-import 'package:dopa_fit/core/widgets/custom_bkground.dart';
+import 'package:dopa_fit/core/widgets/custom_app_bar.dart';
 import 'package:dopa_fit/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:dopa_fit/features/chat/presentation/widgets/chat_view_body.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +13,10 @@ class ChatView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: buildCustomAppBar(context, title: 'Chat'),
         body: BlocProvider(
           create: (context) => ChatCubit(),
-          child: CustomBackground(child: ChatViewBody()),
+          child: ChatViewBody(),
         ),
       ),
     );
