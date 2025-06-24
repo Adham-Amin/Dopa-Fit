@@ -5,6 +5,8 @@ import 'package:dopa_fit/features/chat/presentation/pages/chat_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
 import 'package:dopa_fit/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:dopa_fit/features/profile/presentation/views/personal_info_view.dart';
+import 'package:dopa_fit/features/profile/presentation/views/profile_view.dart';
 import 'package:dopa_fit/features/questions/presentation/views/question_view.dart';
 import 'package:dopa_fit/features/splash/presentation/views/splash_view.dart';
 import 'package:dopa_fit/features/workout/presentation/views/workout_exercise_view.dart';
@@ -33,6 +35,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => WorkoutExerciseView(split: settings.arguments as SplitModel,));
     case ChatView.routeName:
       return MaterialPageRoute(builder: (context) => const ChatView());
+    case ProfileView.routeName:
+      return MaterialPageRoute(builder: (context) => const ProfileView());
+    case PersonalInfoView.routeName:
+      return MaterialPageRoute(builder: (context) => const PersonalInfoView());
     default:
       return MaterialPageRoute(builder: (context) => const SplashView());
   }

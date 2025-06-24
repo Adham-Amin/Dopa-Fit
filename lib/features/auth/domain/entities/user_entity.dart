@@ -7,6 +7,7 @@ class UserEntity {
   final String? planId;
   final String? workoutPlanId;
   final double? weight;
+  final double? height;
   final double? calories;
 
   UserEntity({
@@ -16,14 +17,15 @@ class UserEntity {
     this.planId,
     this.workoutPlanId,
     this.weight,
-    this.calories
+    this.calories,
+    this.height,
   });
 
   factory UserEntity.fromFirebase(User user) => UserEntity(
-        uId: user.uid,
-        name: user.displayName ?? '',
-        email: user.email ?? '',
-      );
+    uId: user.uid,
+    name: user.displayName ?? '',
+    email: user.email ?? '',
+  );
 
   Map<String, dynamic> toMap() {
     return {
@@ -33,7 +35,8 @@ class UserEntity {
       if (planId != null) 'planId': planId,
       if (workoutPlanId != null) 'workoutPlanId': workoutPlanId,
       if (weight != null) 'weight': weight,
-      if (calories != null) 'calories': calories
+      if (calories != null) 'calories': calories,
+      if (height != null) 'height': height,
     };
   }
 
@@ -46,6 +49,7 @@ class UserEntity {
       workoutPlanId: json['workoutPlanId'],
       weight: (json['weight'] as num?)?.toDouble(),
       calories: (json['calories'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
     );
   }
 
@@ -56,7 +60,8 @@ class UserEntity {
     String? planId,
     String? workoutPlanId,
     double? weight,
-    double? calories
+    double? calories,
+    double? height,
   }) {
     return UserEntity(
       uId: uId ?? this.uId,
@@ -65,7 +70,8 @@ class UserEntity {
       planId: planId ?? this.planId,
       workoutPlanId: workoutPlanId ?? this.workoutPlanId,
       weight: weight ?? this.weight,
-      calories: calories ?? this.calories
+      calories: calories ?? this.calories,
+      height: height ?? this.height,
     );
   }
 }

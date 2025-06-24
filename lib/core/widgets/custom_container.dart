@@ -2,9 +2,10 @@ import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key, required this.child});
+  const CustomContainer({super.key, required this.child, this.vertical});
 
   final Widget child;
+  final double? vertical;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,9 @@ class CustomContainer extends StatelessWidget {
           end: Alignment.centerRight,
           colors: [AppColors.darkRed, AppColors.red],
         ),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
-      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+      padding: EdgeInsets.symmetric(vertical: vertical ?? 24, horizontal: 16),
       child: child,
     );
   }

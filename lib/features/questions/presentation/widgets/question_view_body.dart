@@ -111,7 +111,7 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
           calories -= 500;
         }
         log('calories: $calories');
-        getPlansAndUpdateDataUser(calories, w);
+        getPlansAndUpdateDataUser(calories, w, h);
 
         Prefs.setBool('Done Questions', true);
         Navigator.of(context).pushReplacementNamed(HomeView.routeName);
@@ -119,7 +119,7 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
     }
   }
 
-  void getPlansAndUpdateDataUser(double calories, double w) {
+  void getPlansAndUpdateDataUser(double calories, double w, double h) {
     final dietCubit = BlocProvider.of<DietCubit>(context);
     final workoutCubit = BlocProvider.of<WorkoutCubit>(context);
     final planId = dietCubit.getPlan(calories: calories);
@@ -129,13 +129,19 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
     if (json.isNotEmpty) {
       final user = UserEntity.fromMap(jsonDecode(json));
       final updatedUser = user.copyWith(
+        height: h,
         weight: w,
         planId: planId,
         workoutPlanId: workoutPlanId,
+        calories: calories,
       );
       Prefs.setString('userData', jsonEncode(updatedUser.toMap()));
 
-      dietCubit.updateUserPlanId(userId: user.uId, calories: calories);
+      dietCubit.updateUserPlanId(
+        userId: user.uId,
+        calories: calories,
+        height: h,
+      );
       workoutCubit.updateUserWorkoutData(
         userId: user.uId,
         planId: workoutPlanId,

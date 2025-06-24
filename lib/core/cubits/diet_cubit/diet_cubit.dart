@@ -44,12 +44,14 @@ class DietCubit extends Cubit<DietState> {
     }
   }
 
-  Future<void> updateUserPlanId({required String userId, required double calories}) async {
+  Future<void> updateUserPlanId({required String userId, required double calories, required double height}) async {
     emit(DietLoading());
     String planId = getPlan(calories: calories);
     try {
       await FirebaseFirestore.instance.collection("users").doc(userId).update({
         "planId": planId,
+        "calories": calories,
+        "height": height
       });
     } catch (e) {
       emit(DietError(message: 'Something went wrong'));

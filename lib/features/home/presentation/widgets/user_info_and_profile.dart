@@ -2,8 +2,7 @@ import 'package:dopa_fit/core/functions/get_user.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dopa_fit/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class UserInfoAndProfileIcon extends StatelessWidget {
@@ -20,17 +19,13 @@ class UserInfoAndProfileIcon extends StatelessWidget {
           style: AppStyles.textBold14(context).copyWith(color: AppColors.white),
         ),
         Spacer(),
-
-        // SvgPicture.asset(AppAssets.imagesProfileIcon),
         IconButton(
-          onPressed: () {
-            FirebaseAuth.instance.signOut();
-            Navigator.of(context).pushNamedAndRemoveUntil(
-              LoginView.routeName,
-              (route) => false,
-            );
-          },
-          icon: const Icon(Icons.logout, color: AppColors.white),
+          onPressed:
+              () => Navigator.of(context).pushNamed(ProfileView.routeName),
+          icon: const Icon(
+            Icons.person_outline_outlined,
+            color: AppColors.white,
+          ),
         ),
       ],
     );
