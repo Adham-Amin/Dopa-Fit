@@ -1,6 +1,7 @@
 import 'package:dopa_fit/core/models/workout_model/split_model.dart';
 import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
 import 'package:dopa_fit/features/auth/presentation/views/signup_view.dart';
+import 'package:dopa_fit/features/change_password/presentation/views/change_password_view.dart';
 import 'package:dopa_fit/features/chat/presentation/pages/chat_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/views/home_view.dart';
@@ -39,6 +40,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const ProfileView());
     case PersonalInfoView.routeName:
       return MaterialPageRoute(builder: (context) => const PersonalInfoView());
+    case ChangePasswordView.routeName:
+      return MaterialPageRoute(builder: (context) => const ChangePasswordView());
     default:
       return MaterialPageRoute(builder: (context) => const SplashView());
   }

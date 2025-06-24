@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/services/shared_preferences.dart';
@@ -111,15 +112,16 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
           calories -= 500;
         }
         log('calories: $calories');
-        getPlansAndUpdateDataUser(calories, w, h);
+        getPlansAndUpdateDataUserAndCheckNewUser(calories, w, h);
 
         Prefs.setBool('Done Questions', true);
+
         Navigator.of(context).pushReplacementNamed(HomeView.routeName);
       }
     }
   }
 
-  void getPlansAndUpdateDataUser(double calories, double w, double h) {
+  void getPlansAndUpdateDataUserAndCheckNewUser(double calories, double w, double h) async {
     final dietCubit = BlocProvider.of<DietCubit>(context);
     final workoutCubit = BlocProvider.of<WorkoutCubit>(context);
     final planId = dietCubit.getPlan(calories: calories);
@@ -135,6 +137,10 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
         workoutPlanId: workoutPlanId,
         calories: calories,
       );
+      await FirebaseFirestore.instance.collection('users').doc(user.uId).update(
+        {'answeredQuestions': true},
+      );
+
       Prefs.setString('userData', jsonEncode(updatedUser.toMap()));
 
       dietCubit.updateUserPlanId(

@@ -4,6 +4,7 @@ import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_app_bar.dart';
 import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
+import 'package:dopa_fit/features/change_password/presentation/views/change_password_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/profile/presentation/views/personal_info_view.dart';
 import 'package:dopa_fit/features/profile/presentation/widgets/profile_item.dart';
@@ -40,7 +41,7 @@ class ProfileViewBody extends StatelessWidget {
             ),
             ProfileItem(
               onTap: () {
-                // Navigator.of(context).pushNamed(ChangePasswordView.routeName);
+                Navigator.of(context).pushNamed(ChangePasswordView.routeName);
               },
               title: 'Chane Password',
               icon: Icons.lock_outlined,

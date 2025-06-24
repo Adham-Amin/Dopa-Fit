@@ -8,8 +8,14 @@ final class LoginLoading extends LoginState {}
 
 final class LoginLoaded extends LoginState {
   final UserEntity user;
-  LoginLoaded({required this.user});
+  final bool isNewUser;
+
+  LoginLoaded({
+    required this.user,
+    required this.isNewUser,
+  });
 }
+
 
 final class LoginError extends LoginState {
   final String failure;

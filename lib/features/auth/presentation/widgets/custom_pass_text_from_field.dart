@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
 class CustomPassTextFromField extends StatefulWidget {
-  const CustomPassTextFromField({super.key, this.onSaved});
+  const CustomPassTextFromField({super.key, this.onSaved, this.hintText});
 
   final void Function(String?)? onSaved;
+  final String? hintText;
 
   @override
   State<CustomPassTextFromField> createState() =>
@@ -41,7 +42,7 @@ class _CustomPassTextFromFieldState extends State<CustomPassTextFromField> {
         ),
         fillColor: AppColors.white,
         filled: true,
-        hintText: 'Enter your password',
+        hintText:widget.hintText ?? 'Enter your password',
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(12),
