@@ -44,10 +44,28 @@ abstract class AppStyles {
       fontWeight: FontWeight.w400,
     );
   }
+  static TextStyle textRegular10(context) {
+    return TextStyle(
+      fontSize: 10,
+      fontWeight: FontWeight.w400,
+    );
+  }
   static TextStyle textMedium16(context) {
     return TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w500,
+    );
+  }
+  static TextStyle textMedium20(context) {
+    return TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
+    );
+  }
+  static TextStyle textLight14(context) {
+    return TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w300,
     );
   }
   static TextStyle textSemiBold14(context) {

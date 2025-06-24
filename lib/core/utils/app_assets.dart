@@ -58,6 +58,14 @@ class AppAssets {
   /// assets/images/physiotherapy.svg
   static const String imagesPhysiotherapy = "assets/images/physiotherapy.svg";
 
+  /// Assets for imagesPhysiotherapyIcon
+  /// assets/images/physiotherapy_icon.png
+  static const String imagesPhysiotherapyIcon = "assets/images/physiotherapy_icon.png";
+
+  /// Assets for imagesPlayVideo
+  /// assets/images/play_video.svg
+  static const String imagesPlayVideo = "assets/images/play_video.svg";
+
   /// Assets for imagesProfileIcon
   /// assets/images/profile_icon.svg
   static const String imagesProfileIcon = "assets/images/profile_icon.svg";
