@@ -25,7 +25,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
     return TextField(
       minLines: 1,
       maxLines: 5,
-      style: AppStyles.textRegular14(context),
+      style: AppStyles.textRegular14(context).copyWith(color: AppColors.black),
       cursorColor: AppColors.red,
       cursorWidth: 2,
       controller: widget.controller,

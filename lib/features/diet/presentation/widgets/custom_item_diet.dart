@@ -22,7 +22,7 @@ class CustomItemDiet extends StatelessWidget {
               title,
               style: AppStyles.textSemiBold24(
                 context,
-              ),
+              ).copyWith(color: AppColors.white),
             ),
             SizedBox(height: 10.h),
             Icon(icon, size: 60.w, color: AppColors.white),

@@ -28,7 +28,7 @@ class MealBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            Text(meal.name, style: AppStyles.textSemiBold24(context)),
+            Text(meal.name, style: AppStyles.textSemiBold24(context).copyWith(color: AppColors.white)),
             SizedBox(height: 12.h),
             Divider(thickness: 1, color: AppColors.red),
             SizedBox(height: 16.h),

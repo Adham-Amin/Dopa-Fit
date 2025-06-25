@@ -40,7 +40,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 padding: const EdgeInsets.all(6),
                 child: Icon(
                   icons[index],
-                  color: isSelected ? Colors.white : Colors.grey,
+                  color: isSelected ? Colors.red : Colors.grey,
                   size: isSelected ? 28.w : 24.w,
                 ),
               ),

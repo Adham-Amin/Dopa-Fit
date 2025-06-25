@@ -22,24 +22,25 @@ class WorkoutExerciseViewBody extends StatelessWidget {
             subTitle: '${split.workout.length} Exercises',
           ),
           Divider(color: AppColors.red, height: 32.h),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.625,
-            decoration: BoxDecoration(
-              color: AppColors.dark,
-              borderRadius: BorderRadius.circular(16.r),
-            ),
-            padding: EdgeInsets.all(16),
-            child: ListView.builder(
-              itemCount: split.workout.length,
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              itemBuilder:
-                  (context, index) => CustomSplitItem(
-                    onTap: () {
-                      launchLink(context, split.workout[index].url);
-                    },
-                    title: split.workout[index].name,
-                  ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.dark,
+                borderRadius: BorderRadius.circular(16.r),
+              ),
+              padding: EdgeInsets.all(16),
+              child: ListView.builder(
+                itemCount: split.workout.length,
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
+                itemBuilder:
+                    (context, index) => CustomSplitItem(
+                      onTap: () {
+                        launchLink(context, split.workout[index].url);
+                      },
+                      title: split.workout[index].name,
+                    ),
+              ),
             ),
           ),
           SizedBox(height: 24.h),
