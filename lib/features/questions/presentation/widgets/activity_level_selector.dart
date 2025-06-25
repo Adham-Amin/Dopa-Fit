@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ActivityLevelSelector extends StatelessWidget {
   final String selected;
@@ -14,7 +15,7 @@ class ActivityLevelSelector extends StatelessWidget {
       children: [
         Text(
           'What is your activity level?',
-          style: AppStyles.textRegular16(context).copyWith(color: AppColors.white),
+          style: AppStyles.textRegular16(context),
         ),
         const SizedBox(height: 16),
         ...['low', 'medium', 'high'].map((level) {
@@ -28,7 +29,7 @@ class ActivityLevelSelector extends StatelessWidget {
                 foregroundColor: AppColors.white,
                 side: const BorderSide(color: AppColors.red),
                 elevation: 0,
-                padding: const EdgeInsets.symmetric(vertical: 14),
+                padding: EdgeInsets.symmetric(vertical: 14.h),
               ),
               onPressed: () => onSelected(level),
               child: Text(label, style: AppStyles.textRegular14(context)),

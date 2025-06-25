@@ -1,4 +1,3 @@
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,7 @@ class TitleTextField extends StatelessWidget {
         title,
         style: AppStyles.textBold14(
           context,
-        ).copyWith(color: AppColors.white),
+        )
       ),
     );
   }

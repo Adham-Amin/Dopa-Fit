@@ -20,13 +20,13 @@ class _HomeViewState extends State<HomeView> {
     super.initState();
     final user = getUser();
     final workout = context.read<WorkoutCubit>();
-     workout.fetchWorkout(planId: user.workoutPlanId!);
+    workout.fetchWorkout(planId: user.workoutPlanId!);
+    final diet = context.read<DietCubit>();
+    diet.fetchDiet(planId: user.planId!);
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(body: HomeViewBody()),
-    );
+    return SafeArea(child: Scaffold(body: HomeViewBody()));
   }
 }

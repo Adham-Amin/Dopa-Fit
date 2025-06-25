@@ -4,6 +4,7 @@ import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/features/workout/presentation/widgets/custom_split_item.dart';
 import 'package:dopa_fit/features/workout/presentation/widgets/workout_split_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorkoutExerciseViewBody extends StatelessWidget {
   const WorkoutExerciseViewBody({super.key, required this.split});
@@ -15,17 +16,17 @@ class WorkoutExerciseViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          SizedBox(height: 12),
+          SizedBox(height: 12.h),
           WorkoutSplitInfo(
             title: split.name,
             subTitle: '${split.workout.length} Exercises',
           ),
-          Divider(color: AppColors.red, height: 32),
+          Divider(color: AppColors.red, height: 32.h),
           Container(
             height: MediaQuery.of(context).size.height * 0.625,
             decoration: BoxDecoration(
               color: AppColors.dark,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(16.r),
             ),
             padding: EdgeInsets.all(16),
             child: ListView.builder(
@@ -41,7 +42,7 @@ class WorkoutExerciseViewBody extends StatelessWidget {
                   ),
             ),
           ),
-          SizedBox(height: 24),
+          SizedBox(height: 24.h),
         ],
       ),
     );

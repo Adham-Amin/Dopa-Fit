@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'custom_text_from_field_input.dart';
 
 class WeightInputRow extends StatelessWidget {
@@ -16,7 +15,7 @@ class WeightInputRow extends StatelessWidget {
           flex: 3,
           child: Text(
             'Enter Your Weight (kg) ?',
-            style: AppStyles.textRegular16(context).copyWith(color: AppColors.white),
+            style: AppStyles.textRegular16(context),
           ),
         ),
         Expanded(

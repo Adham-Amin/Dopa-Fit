@@ -1,8 +1,7 @@
-
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingItem extends StatelessWidget {
   const OnboardingItem({
@@ -38,23 +37,23 @@ class OnboardingItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           title,
-          SizedBox(height: 12),
+          SizedBox(height: 12.h),
           Text(
             subtitle,
             style: AppStyles.textRegular16(
               context,
-            ).copyWith(color: AppColors.white),
+            ),
           ),
-          const SizedBox(height: 32),
+          SizedBox(height: 32.h),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: CustomButton(
               icon: icon,
               title: buttonTitle,
               onTap: onTap,
             ),
           ),
-          const SizedBox(height: 48),
+          SizedBox(height: 48.h),
         ],
       ),
     );

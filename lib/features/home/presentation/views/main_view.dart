@@ -10,6 +10,7 @@ class MainView extends StatefulWidget {
   const MainView({super.key});
 
   static const String routeName = '/main';
+
   @override
   State<MainView> createState() => _MainViewState();
 }
@@ -17,21 +18,18 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   int selectedIndex = 0;
 
-  final List<Widget> pages = const [
-    HomeView(),
-    WorkoutView(),
-    ChatView(),
-    DietView(),
-    ProfileView(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      HomeView(),
+      WorkoutView(),
+      ChatView(),
+      DietView(),
+      ProfileView(),
+    ];
+
     return Scaffold(
-      body: IndexedStack(
-        index: selectedIndex,
-        children: pages,
-      ),
+      body: pages[selectedIndex],
       bottomNavigationBar: CustomBottomNavBar(
         selectedIndex: selectedIndex,
         onTap: (index) => setState(() => selectedIndex = index),

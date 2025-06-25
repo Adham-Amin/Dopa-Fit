@@ -2,13 +2,13 @@ import 'dart:async';
 import 'package:dopa_fit/core/services/firebase_auth_servies.dart';
 import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_bkground.dart';
 import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
 import 'package:dopa_fit/features/home/presentation/views/main_view.dart';
 import 'package:dopa_fit/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -51,7 +51,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             'Your personal fitness AI coach.',
             style: AppStyles.textMedium16(
               context,
-            ).copyWith(fontSize: 18, color: AppColors.white),
+            ).copyWith(fontSize: 18.sp),
           ),
         ],
       ),

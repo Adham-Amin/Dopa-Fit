@@ -1,5 +1,4 @@
 import 'package:dopa_fit/core/models/diet_model/diet_model.dart';
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +33,8 @@ class _MacroItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(label, style: AppStyles.textSemiBold14(context).copyWith(color: AppColors.white)),
-        Text(value, style: AppStyles.textSemiBold14(context).copyWith(color: AppColors.white)),
+        Text(label, style: AppStyles.textSemiBold14(context)),
+        Text(value, style: AppStyles.textSemiBold14(context)),
       ],
     );
   }

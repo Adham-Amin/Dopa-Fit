@@ -1,6 +1,7 @@
 import 'package:dopa_fit/core/functions/get_user.dart';
 import 'package:dopa_fit/features/profile/presentation/widgets/personal_info_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PersonalInfoViewBody extends StatelessWidget {
   const PersonalInfoViewBody({super.key});
@@ -14,13 +15,13 @@ class PersonalInfoViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 12),
+            SizedBox(height: 12.h),
             PersonalInfoItem(labal: 'Name', value: user.name),
-            SizedBox(height: 12),
+            SizedBox(height: 12.h),
             PersonalInfoItem(labal: 'Email', value: user.email),
-            SizedBox(height: 12),
+            SizedBox(height: 12.h),
             Row(
-              spacing: 12,
+              spacing: 12.w,
               children: [
                 Expanded(
                   child: PersonalInfoItem(
@@ -36,9 +37,9 @@ class PersonalInfoViewBody extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 12),
+            SizedBox(height: 12.h),
             PersonalInfoItem(labal: 'Calories', value: '${user.calories} kcal'),
-            SizedBox(height: 12),
+            SizedBox(height: 12.h),
             PersonalInfoItem(
               labal: 'Workout Split',
               value: user.workoutPlanId.toString(),

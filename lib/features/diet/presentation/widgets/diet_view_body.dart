@@ -7,6 +7,7 @@ import 'package:dopa_fit/features/diet/presentation/widgets/macros_row.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/meals_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DietViewBody extends StatelessWidget {
   const DietViewBody({super.key});
@@ -18,27 +19,41 @@ class DietViewBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 12),
+            SizedBox(height: 12.h),
             BlocBuilder<DietCubit, DietState>(
               builder: (context, state) {
                 if (state is DietError) {
-                  return Center(child: Text(state.message, style: AppStyles.textSemiBold14(context).copyWith(color: AppColors.white),));
+                  return Center(
+                    child: Text(
+                      state.message,
+                      style: AppStyles.textSemiBold14(context),
+                    ),
+                  );
                 } else if (state is DietLoaded) {
                   return Column(
                     children: [
                       MacrosRow(diet: state.diets),
-                      Divider(thickness: 1, color: AppColors.grey, height: 48,),
+                      Divider(
+                        thickness: 1,
+                        color: AppColors.grey,
+                        height: 48.h,
+                      ),
                       MealsGrid(meals: state.diets.meals),
                     ],
                   );
                 }
-                return const Center(child: CircularProgressIndicator(color: AppColors.red,));
+                return const Center(
+                  child: CircularProgressIndicator(color: AppColors.red),
+                );
               },
             ),
-            Divider(thickness: 1, color: AppColors.grey, height: 48,),
+            Divider(thickness: 1, color: AppColors.grey, height: 48.h),
             CustomButton(
               onTap: () {
-                launchLink(context, 'https://www.kvcc.edu/communityculinary/KCMH_Cookbook_KT_Final_11-6_NoCrops-compressed.pdf');
+                launchLink(
+                  context,
+                  'https://www.kvcc.edu/communityculinary/KCMH_Cookbook_KT_Final_11-6_NoCrops-compressed.pdf',
+                );
               },
               title: 'E-Cooking Book',
               iconWidget: const Icon(
@@ -46,7 +61,7 @@ class DietViewBody extends StatelessWidget {
                 color: AppColors.white,
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24.h),
           ],
         ),
       ),

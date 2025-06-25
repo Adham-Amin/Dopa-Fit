@@ -1,10 +1,10 @@
 import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/features/auth/presentation/views/login_view.dart';
 import 'package:dopa_fit/features/onboarding/presentation/widgets/onboarding_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
@@ -31,13 +31,16 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Welcome To ',
-                style: AppStyles.textBold30(
-                  context,
-                ).copyWith(color: AppColors.white, fontSize: 32),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Text(
+                  'Welcome To ',
+                  style: AppStyles.textBold30(
+                    context,
+                  ).copyWith(fontSize: 32.sp),
+                ),
               ),
-              Image.asset(AppAssets.imagesLogo, width: 100),
+              Image.asset(AppAssets.imagesLogo, width: 100.w),
             ],
           ),
           buttonTitle: 'Next',
@@ -50,7 +53,10 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             Navigator.pushReplacementNamed(context, LoginView.routeName);
           },
           bkgroundImage: AppAssets.imagesBkgroundOnboardingTwo,
-          title: Text('Health Metrics &  Fitness Analytics', textAlign: TextAlign.center, style: AppStyles.textBold30(context).copyWith(color: AppColors.white, fontSize: 32)),
+          title: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Text('Health Metrics &  Fitness Analytics', textAlign: TextAlign.center, style: AppStyles.textBold30(context).copyWith(fontSize: 32.sp)),
+          ),
           buttonTitle: 'Get Started',
           icon: AppAssets.imagesIconArrowRight,
           subtitle: 'Monitor your health profile with ease 📈.',

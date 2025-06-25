@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TypingIndicator extends StatefulWidget {
   const TypingIndicator({super.key});
@@ -57,9 +58,9 @@ class _TypingIndicatorState extends State<TypingIndicator>
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         _buildDot(_dotOne),
-        const SizedBox(width: 6),
+        SizedBox(width: 6.w),
         _buildDot(_dotTwo),
-        const SizedBox(width: 6),
+        SizedBox(width: 6.w),
         _buildDot(_dotThree),
       ],
     );

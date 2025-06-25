@@ -37,7 +37,7 @@ class CustomListWorkout extends StatelessWidget {
               state.message,
               style: AppStyles.textSemiBold14(
                 context,
-              ).copyWith(color: AppColors.white),
+              ),
             ),
           );
         } else {

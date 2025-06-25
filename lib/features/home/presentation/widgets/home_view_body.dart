@@ -8,6 +8,7 @@ import 'package:dopa_fit/features/home/presentation/widgets/user_info_and_profil
 import 'package:dopa_fit/features/workout/presentation/views/workout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -20,9 +21,9 @@ class HomeViewBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 8),
+             SizedBox(height: 8.h),
             UserInfoAndProfileIcon(),
-            const SizedBox(height: 32),
+             SizedBox(height: 32.h),
             BlocBuilder<WorkoutCubit, WorkoutState>(
               builder: (context, state) {
                 return CustomHomeItem(
@@ -41,12 +42,12 @@ class HomeViewBody extends StatelessWidget {
                         : 'No data',
                     style: AppStyles.textRegular16(
                       context,
-                    ).copyWith(color: AppColors.white),
+                    ),
                   ),
                 );
               },
             ),
-            const SizedBox(height: 8),
+             SizedBox(height: 8.h),
             CustomHomeItem(
               onTap: () {
                 Navigator.pushNamed(context, DietView.routeName);
@@ -55,10 +56,10 @@ class HomeViewBody extends StatelessWidget {
               image: Icon(
                 Icons.restaurant_outlined,
                 color: AppColors.white,
-                size: 32,
+                size: 32.w,
               ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 8.h),
             CustomHomeItem(
               onTap: () {
                 Navigator.pushNamed(context, WorkoutView.routeName);
@@ -67,10 +68,10 @@ class HomeViewBody extends StatelessWidget {
               image: Icon(
                 Icons.fitness_center,
                 color: AppColors.white,
-                size: 32,
+                size: 32.w,
               ),
             ),
-            // const SizedBox(height: 8),
+            // SizedBox(height: 8.h),
             // CustomHomeItem(
             //   onTap: () {
             //     Navigator.pushNamed(context, ChatView.routeName);
@@ -79,10 +80,10 @@ class HomeViewBody extends StatelessWidget {
             //   image: Icon(
             //     Icons.chat,
             //     color: AppColors.white,
-            //     size: 32,
+            //     size: 32.w,
             //   ),
             // ),
-            const SizedBox(height: 8),
+             SizedBox(height: 8.h),
             CustomHomeItem(
               onTap: () {
                 launchLink(context, 'https://uodiyala.edu.iq/uploads/PDF%20ELIBRARY%20UODIYALA/EL42/Tidy\'s%20Physiotherapy.pdf');
@@ -91,10 +92,10 @@ class HomeViewBody extends StatelessWidget {
               image: Icon(
                 Icons.health_and_safety_outlined,
                 color: AppColors.white,
-                size: 32,
+                size: 32.w,
               ),
             ),
-            const SizedBox(height: 8),
+             SizedBox(height: 8.h),
           ],
         ),
       ),

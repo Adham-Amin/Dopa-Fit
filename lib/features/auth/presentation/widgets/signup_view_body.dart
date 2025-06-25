@@ -9,6 +9,7 @@ import 'package:dopa_fit/features/auth/presentation/widgets/header_auth.dart';
 import 'package:dopa_fit/features/auth/presentation/widgets/title_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupViewBody extends StatefulWidget {
   const SignupViewBody({super.key});
@@ -33,25 +34,25 @@ class _SignupViewBodyState extends State<SignupViewBody> {
             child: Column(
               children: [
                 HeaderAuth(subtitle: 'Quickly make your account in 1 minute.'),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 TitleTextField(title: 'Name'),
-                SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 CustomTextFormField(
                   onSaved: (data) => name = data!,
                   hintText: 'Enter your name',
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 TitleTextField(title: 'Email Address'),
-                SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 CustomTextFormField(
                   onSaved: (data) => email = data!,
                   hintText: 'Enter your email address',
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 TitleTextField(title: 'Password'),
-                SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 CustomPassTextFromField(onSaved: (pass) => password = pass!),
-                SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 CustomButton(
                   onTap: () {
                     if (formKey.currentState!.validate()) {
@@ -70,7 +71,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   title: 'Sign Up',
                   icon: AppAssets.imagesIconArrowRight,
                 ),
-                SizedBox(height: 32),
+                SizedBox(height: 32.h),
                 CustomTestRich(
                   title: 'Already have an account? ',
                   subtitle: 'Sign In',
@@ -78,7 +79,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     Navigator.pop(context);
                   },
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: 40.h),
               ],
             ),
           ),

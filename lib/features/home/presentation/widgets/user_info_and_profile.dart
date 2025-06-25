@@ -4,6 +4,7 @@ import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/features/questions/presentation/views/question_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserInfoAndProfileIcon extends StatelessWidget {
   const UserInfoAndProfileIcon({super.key});
@@ -11,12 +12,12 @@ class UserInfoAndProfileIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      spacing: 8,
+      spacing: 8.w,
       children: [
-        Image.asset(AppAssets.imagesBodybuilder, width: 50),
+        Image.asset(AppAssets.imagesBodybuilder, width: 50.w),
         Text(
           getUser().name,
-          style: AppStyles.textBold14(context).copyWith(color: AppColors.white),
+          style: AppStyles.textBold14(context)
         ),
         Spacer(),
         IconButton(

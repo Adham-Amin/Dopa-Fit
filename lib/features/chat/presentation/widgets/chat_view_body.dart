@@ -5,6 +5,7 @@ import 'package:dopa_fit/features/chat/presentation/widgets/chat_text_field.dart
 import 'package:dopa_fit/features/chat/presentation/widgets/typing_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatViewBody extends StatefulWidget {
   const ChatViewBody({super.key});
@@ -39,10 +40,10 @@ class _ChatViewBodyState extends State<ChatViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          const SizedBox(height: 12),
+           SizedBox(height: 12.h),
           Expanded(
             child: BlocConsumer<ChatCubit, ChatState>(
               listener: (context, state) {
@@ -61,7 +62,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                     children: [
                       ...messages.map(
                         (msg) => Padding(
-                          padding: const EdgeInsets.only(bottom: 16),
+                          padding:  EdgeInsets.only(bottom: 16.h),
                           child: AnimatedMessage(
                             message: msg.text,
                             isMe: msg.isUserMessage,
@@ -71,8 +72,8 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                       ),
 
                       if (isLoading)
-                        const Padding(
-                          padding: EdgeInsets.only(bottom: 16),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 16.h),
                           child: TypingIndicator(),
                         ),
                     ],
@@ -81,14 +82,14 @@ class _ChatViewBodyState extends State<ChatViewBody> {
               },
             ),
           ),
-          SizedBox(height: 12),
+          SizedBox(height: 12.h),
           ChatTextField(
             controller: controller,
             onSend: (text) {
               context.read<ChatCubit>().sendMessage(text);
             },
           ),
-          SizedBox(height: 12),
+          SizedBox(height: 12.h),
         ],
       ),
     );

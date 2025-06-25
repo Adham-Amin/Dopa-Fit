@@ -1,6 +1,7 @@
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatTextField extends StatefulWidget {
   final TextEditingController controller;
@@ -64,7 +65,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
 
   OutlineInputBorder _border(Color color, {double width = 1}) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(8.r),
       borderSide: BorderSide(color: color, width: width),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileItem extends StatelessWidget {
   const ProfileItem({
@@ -21,7 +22,7 @@ class ProfileItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.dark,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
         ),
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: ListTile(
@@ -31,7 +32,7 @@ class ProfileItem extends StatelessWidget {
             title,
             style: AppStyles.textBold14(
               context,
-            ).copyWith(color: AppColors.white),
+            ),
           ),
         ),
       ),

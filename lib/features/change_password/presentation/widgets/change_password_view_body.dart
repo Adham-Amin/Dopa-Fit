@@ -6,6 +6,7 @@ import 'package:dopa_fit/features/auth/presentation/widgets/title_text_field.dar
 import 'package:dopa_fit/features/change_password/presentation/manager/change_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChangePasswordViewBody extends StatefulWidget {
   const ChangePasswordViewBody({super.key});
@@ -51,28 +52,28 @@ class _ChangePasswordViewBodyState extends State<ChangePasswordViewBody> {
               key: formKey,
               child: Column(
                 children: [
-                  const SizedBox(height: 12),
+                   SizedBox(height: 12.h),
                   const TitleTextField(title: 'Current Password'),
-                  const SizedBox(height: 4),
+                   SizedBox(height: 4.h),
                   CustomPassTextFromField(
                     onSaved: (data) => currentPassword = data!,
                     hintText: 'Enter current password',
                   ),
-                  const SizedBox(height: 16),
+                   SizedBox(height: 16.h),
                   const TitleTextField(title: 'New Password'),
-                  const SizedBox(height: 4),
+                   SizedBox(height: 4.h),
                   CustomPassTextFromField(
                     onSaved: (data) => newPassword = data!,
                     hintText: 'Enter new password',
                   ),
-                  const SizedBox(height: 16),
+                   SizedBox(height: 16.h),
                   const TitleTextField(title: 'Confirm Password'),
-                  const SizedBox(height: 4),
+                   SizedBox(height: 4.h),
                   CustomPassTextFromField(
                     onSaved: (data) => confirmPassword = data!,
                     hintText: 'Enter confirm password',
                   ),
-                  const SizedBox(height: 32),
+                   SizedBox(height: 32.h),
                   state is ChangePasswordLoading
                       ? const CircularProgressIndicator()
                       : CustomButton(
@@ -80,13 +81,13 @@ class _ChangePasswordViewBodyState extends State<ChangePasswordViewBody> {
                         onTap: () {
                           changePass(context);
                         },
-                        iconWidget: const Icon(
+                        iconWidget: Icon(
                           Icons.save_outlined,
                           color: AppColors.red,
-                          size: 24,
+                          size: 24.w,
                         ),
                       ),
-                  const SizedBox(height: 24),
+                   SizedBox(height: 24.h),
                 ],
               ),
             ),
@@ -104,7 +105,7 @@ class _ChangePasswordViewBodyState extends State<ChangePasswordViewBody> {
           SnackBar(
             content: Text(
               'Passwords do not match',
-              style: AppStyles.textRegular16(AppColors.white),
+              style: AppStyles.textRegular16(context),
             ),
           ),
         );

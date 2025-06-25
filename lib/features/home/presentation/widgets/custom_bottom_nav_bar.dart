@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -21,11 +22,11 @@ class CustomBottomNavBar extends StatelessWidget {
     ];
 
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+      padding: EdgeInsets.only(left: 16, right: 16, bottom: 16.h),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.w),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.r),
           border: Border.all(color: Colors.white),
         ),
         child: Row(
@@ -40,7 +41,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 child: Icon(
                   icons[index],
                   color: isSelected ? Colors.white : Colors.grey,
-                  size: isSelected ? 28 : 24,
+                  size: isSelected ? 28.w : 24.w,
                 ),
               ),
             );

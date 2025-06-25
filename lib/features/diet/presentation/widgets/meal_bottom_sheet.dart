@@ -2,6 +2,7 @@ import 'package:dopa_fit/core/models/diet_model/meal_model.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MealBottomSheet extends StatelessWidget {
   final MealModel meal;
@@ -17,35 +18,30 @@ class MealBottomSheet extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Center(
-                  child: Container(
-                    width: 35,
-                    height: 2,
-                    margin: const EdgeInsets.only(bottom: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[600],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+              child: Container(
+                width: 35.w,
+                height: 2.h,
+                margin: EdgeInsets.only(bottom: 16.h),
+                decoration: BoxDecoration(
+                  color: Colors.grey[600],
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
-            Text(
-              meal.name,
-              style: AppStyles.textSemiBold24(
-                context,
-              ).copyWith(color: AppColors.white),
+              ),
             ),
-            const SizedBox(height: 12),
+            Text(meal.name, style: AppStyles.textSemiBold24(context)),
+            SizedBox(height: 12.h),
             Divider(thickness: 1, color: AppColors.red),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
             ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: meal.items.length,
-              separatorBuilder: (_, __) => SizedBox(height: 8),
+              separatorBuilder: (_, __) => SizedBox(height: 8.h),
               itemBuilder: (context, index) {
                 final item = meal.items[index];
                 return Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                     color: AppColors.black,
                   ),
                   child: ListTile(
@@ -65,7 +61,7 @@ class MealBottomSheet extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
           ],
         ),
       ),

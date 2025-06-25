@@ -16,6 +16,7 @@ import 'package:dopa_fit/features/questions/presentation/widgets/hieght_input_ro
 import 'package:dopa_fit/features/questions/presentation/widgets/wieght_input_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuestionViewBody extends StatefulWidget {
   const QuestionViewBody({super.key});
@@ -39,46 +40,46 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
         key: _formKey,
         child: Column(
           children: [
-            const SizedBox(height: 80),
+             SizedBox(height: 80.h),
             Text(
               'Calculate Calories',
               style: AppStyles.textBold20(
                 context,
-              ).copyWith(color: AppColors.white),
+              ),
             ),
-            const SizedBox(height: 32),
+             SizedBox(height: 32.h),
             HeightInputRow(onSaved: (val) => height = val ?? ''),
-            const SizedBox(height: 16),
+             SizedBox(height: 16.h),
             WeightInputRow(onSaved: (val) => weight = val ?? ''),
-            const Divider(
+             Divider(
               color: AppColors.red,
               thickness: 1,
-              height: 32,
-              indent: 32,
-              endIndent: 32,
+              height: 32.h,
+              indent: 32.w,
+              endIndent: 32.w,
             ),
             ActivityLevelSelector(
               selected: activityLevel,
               onSelected: (val) => setState(() => activityLevel = val),
             ),
-            const Divider(
+             Divider(
               color: AppColors.red,
               thickness: 1,
-              height: 32,
-              indent: 32,
-              endIndent: 32,
+              height: 32.h,
+              indent: 32.w,
+              endIndent: 32.w,
             ),
             GoalSelector(
               selected: goal,
               onSelected: (val) => setState(() => goal = val),
             ),
-            const SizedBox(height: 32),
+             SizedBox(height: 32.h),
             CustomButton(
               title: 'Get Plans',
               icon: AppAssets.imagesIconArrowRight,
               onTap: caloriesCalculate,
             ),
-            const SizedBox(height: 32),
+             SizedBox(height: 32.h),
           ],
         ),
       ),

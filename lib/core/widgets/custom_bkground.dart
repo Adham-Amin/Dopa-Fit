@@ -15,11 +15,7 @@ class CustomBackground extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            AppColors.black,
-
-            AppColors.darkRed,
-          ],
+          colors: [AppColors.black, AppColors.darkRed],
         ),
       ),
       child: child,

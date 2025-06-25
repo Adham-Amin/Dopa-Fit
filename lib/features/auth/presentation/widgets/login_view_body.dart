@@ -13,6 +13,7 @@ import 'package:dopa_fit/features/auth/presentation/widgets/social_button.dart';
 import 'package:dopa_fit/features/auth/presentation/widgets/title_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -37,18 +38,18 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             child: Column(
               children: [
                 HeaderAuth(subtitle: 'Let’s personalize your fitness with AI.'),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 TitleTextField(title: 'Email Address'),
-                SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 CustomTextFormField(
                   onSaved: (data) => email = data!,
                   hintText: 'Enter your email address',
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 TitleTextField(title: 'Password'),
-                SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 CustomPassTextFromField(onSaved: (pass) => password = pass!),
-                SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 CustomButton(
                   onTap: () {
                     if (formKey.currentState!.validate()) {
@@ -64,9 +65,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   title: 'Sign In',
                   icon: AppAssets.imagesIconArrowRight,
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 Row(
-                  spacing: 8,
+                  spacing: 8.w,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SocialButton(
@@ -83,7 +84,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     ),
                   ],
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 CustomTestRich(
                   onTap: () {
                     Navigator.pushNamed(context, SignupView.routeName);
@@ -97,10 +98,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     'Forgot your password? ',
                     style: AppStyles.textMedium16(
                       context,
-                    ).copyWith(color: AppColors.orange, fontSize: 14),
+                    ).copyWith(color: AppColors.orange, fontSize: 14.sp),
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 40.h),
               ],
             ),
           ),

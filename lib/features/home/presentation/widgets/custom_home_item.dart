@@ -1,4 +1,3 @@
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
@@ -23,12 +22,7 @@ class CustomHomeItem extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              title,
-              style: AppStyles.textSemiBold24(
-                context,
-              ).copyWith(color: AppColors.white),
-            ),
+            Text(title, style: AppStyles.textSemiBold24(context)),
             image,
           ],
         ),

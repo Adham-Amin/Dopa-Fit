@@ -1,6 +1,7 @@
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomWorkoutItem extends StatelessWidget {
   const CustomWorkoutItem({
@@ -21,9 +22,9 @@ class CustomWorkoutItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.black,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
         ),
-        margin: EdgeInsets.only(bottom: 12),
+        margin: EdgeInsets.only(bottom: 12.h),
         padding: EdgeInsets.all(16),
         child: ListTile(
           contentPadding: EdgeInsets.zero,
@@ -31,18 +32,18 @@ class CustomWorkoutItem extends StatelessWidget {
             title,
             style: AppStyles.textMedium20(
               context,
-            ).copyWith(color: AppColors.white),
+            ),
           ),
           subtitle: Text(
             subtitle,
             style: AppStyles.textLight14(
               context,
-            ).copyWith(color: AppColors.white),
+            ),
           ),
           trailing: Icon(
             Icons.arrow_circle_right_outlined,
             color: AppColors.red,
-            size: 32,
+            size: 32.w,
           ),
         ),
       ),
