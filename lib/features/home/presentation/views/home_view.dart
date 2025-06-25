@@ -18,11 +18,25 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    final user = getUser();
-    final workout = context.read<WorkoutCubit>();
-    workout.fetchWorkout(planId: user.workoutPlanId!);
-    final diet = context.read<DietCubit>();
-    diet.fetchDiet(planId: user.planId!);
+    _startWatchingUser();
+  }
+
+  void _startWatchingUser() async {
+    while (mounted) {
+      await Future.delayed(Duration(seconds: 1));
+
+      final user = getUser();
+
+      if (user.workoutPlanId != null) {
+        context.read<WorkoutCubit>().fetchWorkout(planId: user.workoutPlanId!);
+      }
+
+      if (user.planId != null) {
+        context.read<DietCubit>().fetchDiet(planId: user.planId!);
+      }
+      
+      if (user.planId != null && user.workoutPlanId != null) break;
+    }
   }
 
   @override
