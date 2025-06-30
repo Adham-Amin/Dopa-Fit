@@ -3,11 +3,11 @@ import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ActivityLevelSelector extends StatelessWidget {
+class GenderSelector extends StatelessWidget {
   final String selected;
   final ValueChanged<String> onSelected;
 
-  const ActivityLevelSelector({
+  const GenderSelector({
     super.key,
     required this.selected,
     required this.onSelected,
@@ -19,13 +19,13 @@ class ActivityLevelSelector extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'What is your activity level?',
+          'What is your gender?',
           style: AppStyles.textRegular16(context),
         ),
         const SizedBox(height: 16),
         Row(
           children:
-              ['light', 'moderate', 'active'].map((level) {
+              ['male', 'female'].map((level) {
                 String label = level[0].toUpperCase() + level.substring(1);
                 return Expanded(
                   child: Container(

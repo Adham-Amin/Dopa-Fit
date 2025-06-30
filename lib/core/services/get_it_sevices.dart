@@ -4,6 +4,8 @@ import 'package:dopa_fit/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:dopa_fit/features/auth/domain/repos/auth_repo.dart';
 import 'package:dopa_fit/features/change_password/data/repos/change_password_repo.dart';
 import 'package:dopa_fit/features/change_password/data/repos/change_password_repo_impl.dart';
+import 'package:dopa_fit/features/diet/data/repos/diet_repo.dart';
+import 'package:dopa_fit/features/diet/data/repos/diet_repo_impl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
@@ -19,6 +21,8 @@ void setupGetIt() {
       firestoeServices: getIt<FirestoeServices>(),
     ),
   );
+
+  getIt.registerSingleton<DietRepo>(DietRepoImpl());
 
   getIt.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   getIt.registerSingleton<ChangePasswordRepo>(

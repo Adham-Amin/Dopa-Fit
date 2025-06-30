@@ -9,14 +9,19 @@ part 'workout_state.dart';
 class WorkoutCubit extends Cubit<WorkoutState> {
   WorkoutCubit() : super(WorkoutInitial());
 
-
   String getWorkoutPlanId({required double weight}) {
-    if (weight < 60) {
-      return 'AR';
-    } else if (weight < 80) {
-      return 'PPL';
-    } else {
+    if (weight < 55) {
+      return 'FB';
+    } else if (weight >= 55 && weight <= 65) {
       return 'UL';
+    } else if (weight > 65 && weight <= 75) {
+      return 'PPL';
+    } else if (weight > 75 && weight <= 85) {
+      return 'UXA';
+    } else if (weight > 85 && weight <= 95) {
+      return 'PXA';
+    } else {
+      return 'FB';
     }
   }
 

@@ -8,6 +8,6 @@ class QuestionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: QuestionViewBody());
+    return SafeArea(child: Scaffold(body: QuestionViewBody()));
   }
 }

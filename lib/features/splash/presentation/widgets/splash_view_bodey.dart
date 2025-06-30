@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:dopa_fit/core/functions/check_and_navigate.dart';
 import 'package:dopa_fit/core/services/firebase_auth_servies.dart';
 import 'package:dopa_fit/core/services/shared_preferences.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
@@ -21,21 +22,20 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     super.initState();
-    executeNavigator();
+    checkAndNavigate(context);
   }
 
   void executeNavigator() {
     Timer(Duration(seconds: 3), () {
-     if (Prefs.getBool('seenOnboarding')) {
-      if(FirebaseAuthServies.isSignedIn()) {
-        Navigator.pushReplacementNamed(context, MainView.routeName);
+      if (Prefs.getBool('seenOnboarding')) {
+        if (FirebaseAuthServies.isSignedIn()) {
+          Navigator.pushReplacementNamed(context, MainView.routeName);
+        } else {
+          Navigator.pushReplacementNamed(context, LoginView.routeName);
+        }
+      } else {
+        Navigator.pushReplacementNamed(context, OnboardingView.routeName);
       }
-      else {
-        Navigator.pushReplacementNamed(context, LoginView.routeName);
-      }
-     } else {
-      Navigator.pushReplacementNamed(context, OnboardingView.routeName);
-     }
     });
   }
 
@@ -49,9 +49,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           const SizedBox(height: 20),
           Text(
             'Your personal fitness AI coach.',
-            style: AppStyles.textMedium16(
-              context,
-            ).copyWith(fontSize: 18.sp),
+            style: AppStyles.textMedium16(context).copyWith(fontSize: 18.sp),
           ),
         ],
       ),

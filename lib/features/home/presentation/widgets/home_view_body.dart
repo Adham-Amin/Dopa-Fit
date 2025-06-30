@@ -2,6 +2,7 @@ import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/functions/launch_link.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
+import 'package:dopa_fit/features/chat/presentation/pages/chat_view.dart';
 import 'package:dopa_fit/features/diet/presentation/views/diet_view.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/custom_home_item.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/user_info_and_profile.dart';
@@ -71,18 +72,18 @@ class HomeViewBody extends StatelessWidget {
                 size: 32.w,
               ),
             ),
-            // SizedBox(height: 8.h),
-            // CustomHomeItem(
-            //   onTap: () {
-            //     Navigator.pushNamed(context, ChatView.routeName);
-            //   },
-            //   title: 'Chat Bot',
-            //   image: Icon(
-            //     Icons.chat,
-            //     color: AppColors.white,
-            //     size: 32.w,
-            //   ),
-            // ),
+            SizedBox(height: 8.h),
+            CustomHomeItem(
+              onTap: () {
+                Navigator.pushNamed(context, ChatView.routeName);
+              },
+              title: 'Chat Bot',
+              image: Icon(
+                Icons.chat,
+                color: AppColors.white,
+                size: 32.w,
+              ),
+            ),
              SizedBox(height: 8.h),
             CustomHomeItem(
               onTap: () {

@@ -1,6 +1,6 @@
-import 'package:dopa_fit/core/models/diet_model/meal_model.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
+import 'package:dopa_fit/features/diet/data/models/meal_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -46,13 +46,13 @@ class MealBottomSheet extends StatelessWidget {
                   ),
                   child: ListTile(
                     title: Text(
-                      item.name,
+                      item.food,
                       style: AppStyles.textSemiBold16(
                         context,
                       ).copyWith(color: AppColors.white),
                     ),
                     trailing: Text(
-                      item.quantity,
+                      '${item.weight} g',
                       style: AppStyles.textRegular14(
                         context,
                       ).copyWith(color: AppColors.white),

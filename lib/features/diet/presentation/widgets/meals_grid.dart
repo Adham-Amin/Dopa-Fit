@@ -1,5 +1,5 @@
-import 'package:dopa_fit/core/models/diet_model/meal_model.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
+import 'package:dopa_fit/features/diet/data/models/meal_model.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/custom_item_diet.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/meal_bottom_sheet.dart';
 import 'package:flutter/material.dart';

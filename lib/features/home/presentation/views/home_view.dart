@@ -1,6 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
-import 'package:dopa_fit/core/cubits/diet_cubit/diet_cubit.dart';
 import 'package:dopa_fit/core/cubits/workout_cubit/workout_cubit.dart';
 import 'package:dopa_fit/core/functions/get_user.dart';
 import 'package:dopa_fit/features/home/presentation/widgets/home_view_body.dart';
@@ -26,17 +24,10 @@ class _HomeViewState extends State<HomeView> {
   void _startWatchingUser() async {
     while (mounted) {
       await Future.delayed(Duration(seconds: 1));
-
       final user = getUser();
-
       if (user.workoutPlanId != null) {
         context.read<WorkoutCubit>().fetchWorkout(planId: user.workoutPlanId!);
       }
-
-      if (user.planId != null) {
-        context.read<DietCubit>().fetchDiet(planId: user.planId!);
-      }
-      
       if (user.planId != null && user.workoutPlanId != null) break;
     }
   }
