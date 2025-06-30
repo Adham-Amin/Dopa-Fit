@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 import 'package:dopa_fit/core/functions/check_and_navigate.dart';
 import 'package:dopa_fit/core/services/firebase_auth_servies.dart';
@@ -22,7 +24,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
     checkAndNavigate(context);
+  });
   }
 
   void executeNavigator() {

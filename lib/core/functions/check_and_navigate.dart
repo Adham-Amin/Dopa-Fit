@@ -8,6 +8,7 @@ import 'package:dopa_fit/features/onboarding/presentation/views/onboarding_view.
 import 'package:dopa_fit/features/questions/presentation/views/question_view.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 Future<void> checkAndNavigate(BuildContext context) async {
   final prefs = await SharedPreferences.getInstance();
   int lastOpenMillis = prefs.getInt('last_question_page_open') ?? 0;
@@ -19,15 +20,18 @@ Future<void> checkAndNavigate(BuildContext context) async {
 
   const fourteenDaysMillis = 14 * 24 * 60 * 60 * 1000;
 
-  if (nowMillis - lastOpenMillis > fourteenDaysMillis) {
-    await prefs.setInt('last_question_page_open', nowMillis);
-    Navigator.pushReplacementNamed(context, QuestionView.routeName);
-    return; 
-  }
+  if (lastOpenMillis != 0 && nowMillis - lastOpenMillis > fourteenDaysMillis) {
+  await prefs.setInt('last_question_page_open', nowMillis);
+  if (!context.mounted) return;
+  Navigator.pushReplacementNamed(context, QuestionView.routeName);
+  return; 
+}
+
 
   final bool seenOnboarding = Prefs.getBool('seenOnboarding');
   final bool signedIn = FirebaseAuthServies.isSignedIn();
 
+  if (!context.mounted) return;
 
   if (!seenOnboarding) {
     Navigator.pushReplacementNamed(context, OnboardingView.routeName);
