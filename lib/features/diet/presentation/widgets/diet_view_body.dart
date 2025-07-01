@@ -1,7 +1,9 @@
+import 'package:dopa_fit/core/functions/get_user.dart';
 import 'package:dopa_fit/core/functions/launch_link.dart';
 import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:dopa_fit/core/widgets/custom_button.dart';
+import 'package:dopa_fit/features/diet/data/models/diet_input_model.dart';
 import 'package:dopa_fit/features/diet/presentation/manager/cubit/diet_cubit.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/macros_row.dart';
 import 'package:dopa_fit/features/diet/presentation/widgets/meals_grid.dart';
@@ -20,7 +22,18 @@ class _DietViewBodyState extends State<DietViewBody> {
   @override
   void initState() {
     super.initState();
-    context.read<DietCubit>().getMeals();
+    final user = getUser();
+    BlocProvider.of<DietCubit>(context).getMeals(
+      dietInput: DietInputModel(
+        height: user.height!,
+        weight: user.weight!,
+        age: user.age!,
+        gender: user.gender!,
+        activityLevel: user.activityLevel!,
+        goal: user.goal!,
+        allergies: user.allergies!,
+      ),
+    );
   }
   @override
   Widget build(BuildContext context) {

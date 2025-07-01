@@ -16,15 +16,14 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   @override
-@override
-void initState() {
-  super.initState();
-  final user = getUser();
-  if (user.workoutPlanId != null) {
-    context.read<WorkoutCubit>().fetchWorkout(planId: user.workoutPlanId!);
+  @override
+  void initState() {
+    super.initState();
+    final user = getUser();
+    if (user.workoutPlanId != null) {
+      context.read<WorkoutCubit>().fetchWorkout(planId: user.workoutPlanId!);
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {

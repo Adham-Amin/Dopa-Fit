@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'diet_repo.dart';
 
 class DietRepoImpl extends DietRepo {
-  final String baseUrl = 'http://192.168.1.10:5000/get_meals';
+  final String baseUrl = 'http://192.168.1.10:5000/api/analyze';
 
   @override
   Future<Either<Failure, MealResponseModel>> getMeals({

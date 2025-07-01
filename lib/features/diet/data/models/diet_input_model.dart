@@ -23,7 +23,7 @@ class DietInputModel {
       'gender': gender,
       'height': height,
       'weight': weight,
-      'activityLevel': activityLevel,
+      'activity_level': activityLevel,
       'goal': goal,
       'allergies': allergies,
     };

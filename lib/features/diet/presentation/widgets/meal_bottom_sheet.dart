@@ -52,7 +52,7 @@ class MealBottomSheet extends StatelessWidget {
                       ).copyWith(color: AppColors.white),
                     ),
                     trailing: Text(
-                      '${item.weight} g',
+                      item.weight,
                       style: AppStyles.textRegular14(
                         context,
                       ).copyWith(color: AppColors.white),

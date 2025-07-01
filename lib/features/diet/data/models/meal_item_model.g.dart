@@ -18,7 +18,7 @@ class MealItemModelAdapter extends TypeAdapter<MealItemModel> {
     };
     return MealItemModel(
       food: fields[0] as String,
-      weight: fields[1] as num,
+      weight: fields[1] as String,
     );
   }
 

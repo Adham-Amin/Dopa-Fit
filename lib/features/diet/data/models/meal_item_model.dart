@@ -8,7 +8,7 @@ class MealItemModel extends HiveObject {
   final String food;
 
   @HiveField(1)
-  final num weight;
+  final String weight;
 
   MealItemModel({required this.food, required this.weight});
 

@@ -37,7 +37,7 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
   String weight = '';
   String allergies = '';
   String goal = 'lose';
-  String activityLevel = 'light';
+  String activityLevel = 'low';
   String gender = 'male';
   late int age;
 
@@ -114,24 +114,28 @@ class _QuestionViewBodyState extends State<QuestionViewBody> {
       final workoutCubit = BlocProvider.of<WorkoutCubit>(context);
       final workoutPlanId = workoutCubit.getWorkoutPlanId(weight: w);
 
-      final dietCubit = BlocProvider.of<DietCubit>(context);
-      dietCubit.getMeals(
+      BlocProvider.of<DietCubit>(context).getMeals(
         dietInput: DietInputModel(
-          age: age,
-          gender: gender,
           height: h,
           weight: w,
+          age: age,
+          gender: gender,
           activityLevel: activityLevel,
           goal: goal,
           allergies: allergies,
         ),
         forceRefresh: true,
       );
+
       final json = Prefs.getString('userData');
       if (json.isNotEmpty) {
         final user = UserEntity.fromMap(jsonDecode(json));
         final updatedUser = user.copyWith(
-          calories: calculateCalories(w, h),
+          age: age,
+          gender: gender,
+          activityLevel: activityLevel,
+          goal: goal,
+          allergies: allergies,
           height: h,
           weight: w,
           workoutPlanId: workoutPlanId,

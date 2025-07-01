@@ -25,7 +25,7 @@ class ActivityLevelSelector extends StatelessWidget {
         const SizedBox(height: 16),
         Row(
           children:
-              ['light', 'moderate', 'active'].map((level) {
+              ['low', 'moderate', 'high'].map((level) {
                 String label = level[0].toUpperCase() + level.substring(1);
                 return Expanded(
                   child: Container(

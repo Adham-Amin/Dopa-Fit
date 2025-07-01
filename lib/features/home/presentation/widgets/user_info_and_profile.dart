@@ -1,6 +1,5 @@
 import 'package:dopa_fit/core/functions/get_user.dart';
 import 'package:dopa_fit/core/utils/app_assets.dart';
-import 'package:dopa_fit/core/utils/app_colors.dart';
 import 'package:dopa_fit/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,10 +19,9 @@ class UserInfoAndProfileIcon extends StatelessWidget {
         IconButton(
           onPressed: () async {
             final prefs = await SharedPreferences.getInstance();
-            await prefs.setInt('last_question_page_open', 0);
+            await prefs.setBool('goToQuestions', true);
           },
-
-          icon: const Icon(Icons.upload_outlined, color: AppColors.white),
+          icon: const Icon(Icons.question_answer),
         ),
       ],
     );
